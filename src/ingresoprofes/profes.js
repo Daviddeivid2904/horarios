@@ -12,18 +12,7 @@ function Inputs() {
   }
 
 const formulario = {
-  border:"solid black",
-  width:"80",
-  padding:"5",
-  position:"relative",
-  background:"red",
-}
-const divCont = {
-border:"solid black",
-width: "70%",
-height: "auto",
-padding:"5",
-background:"white"
+  background:"lightblue",
 }
 
   const [name, setName] = useState("");
@@ -34,22 +23,6 @@ background:"white"
     event.preventDefault();
     alert(`The name you entered was: ${name}`)
     
-  }
-
-
-  const bloques = (bloque) => {
-    return(
-    <div>
-     <input type="checkbox" id= {bloque} name="topping" value="disponible"/> {bloque}
-    </div>
-    )
-  }
-  const dias = (dia) => {
-    return(
-    <div>
-     <input type="checkbox" id= {dia} name="topping" value="disponible" /> {dia}
-    </div>
-    )
   }
 
   return (
@@ -81,27 +54,140 @@ background:"white"
         />
       </label>
       <h1 style={bigblue}>{materia.toLowerCase()}</h1>
-
-      <h1>Dias disponible:</h1>
-      {dias("Lunes")}
-      {dias("Martes")}
-      {dias("Miercoles")}
-      {dias("Jueves")}
-      {dias("Viernes")}
-      
-      <h1>Bloques disponible:</h1>
-      <div style = {divCont}>
-      {bloques("1er bloque (7:45 a 9:05)")}
-      {bloques("2do bloque (9:20 a 10:40)")}
-      {bloques("3er bloque (10:55 a 12:15)")}
-      {bloques("Almuerzo (12:15 a 13:10)")}
-      {bloques("4t obloque (13:10 a 14:30) ")}
-      {bloques("5to bloque (14:40 a 16)")}
-      {bloques("6to bloque (16:10 a 17:30)")}
-      </div>
+      <Horarios/>
     </form>
     </div>
   )
 }
+
+const Square = (props) => {
+  //const [disp, setDisp] = useState(false);
+  return (
+    <div className="square">
+      <div className = "hora"> 
+      </div>
+    </div>
+  );
+}
+
+const Hora = (props) => {
+  return (
+    <div className="izq">
+      <p className="numero">{props.num}</p>
+      <div className = "hora">
+          {props.hora}
+      </div>
+    </div>
+  );
+}
+const Dia = (props) => {
+  return (
+    <div className="dia">
+      {props.dia}
+    </div>
+  );
+}
+
+function Board() {
+  const renderSquare = (num,hora) => {
+    return <Square hora = {hora} num = {num}/>;
+  }
+
+  const renderHora = (num,hora) => {
+    return <Hora hora = {hora} num = {num}/>;
+  }
+
+  const renderDia = (info) => {
+    return <Dia dia = {info}/>;
+  }
+
+  const status = "horarios"
+
+    return (
+      <div>
+        <h1 className="status">{status}</h1>
+        <div className="board-row">
+          {renderDia("Viernes")}
+          {renderDia("Jueves")}
+          {renderDia("Miercoles")}
+          {renderDia("Martes")}
+          {renderDia("Lunes")}
+        </div>
+        <div className="board-row">
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderHora("1°","7:45 - 9:05")}
+        </div>
+        <div className="board-row">
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderHora("2°","9:20 - 10:40")}
+
+        </div>
+        <div className="board-row">
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderHora("3°","10:55 - 12:15")}
+
+        </div>
+        <div className="board-row">
+          {renderDia()}
+          {renderDia()}
+          {renderDia()}
+          {renderDia()}
+          {renderDia()}
+          {renderDia()}
+        </div>
+        <div className="board-row">
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderHora("4°","13:10 - 14:30")}
+
+        </div>
+        <div className="board-row">
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderHora("5°","14:40 - 16:00")}
+
+        </div>
+        <div className="board-row">
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderSquare()}
+          {renderHora("6°","16:10 - 17:30")}
+
+        </div>
+      </div>
+    );
+  }
+
+function Horarios (){
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+        </div>
+      </div>
+    );
+  }
 
 

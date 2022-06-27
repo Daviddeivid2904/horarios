@@ -2,3 +2,107 @@
 .error {
   color: red;
 }
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  background-color: lightblue;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  display: flex;
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+.izq {
+  background: #fff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 100px;
+  height: 102px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 150px;
+}
+
+.izq:focus {
+  outline: none;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 100px;
+  height: 102px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 150px;
+}
+.square:hover {
+  background-color: gray;
+}
+.dia {
+  background: #ffffff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 30px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 150px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.game-info {
+  justify-content: center;
+}
+
+.numero{
+  height: 30px;
+  margin: 0;
+}
+
+.hora {
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+}
+

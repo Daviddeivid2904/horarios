@@ -11,7 +11,7 @@ const Inicio = () =>{
         <div className = "body">
             <div className = "espacio">
                 <button className = "button">Hacer Horarios</button>
-                <button className = "button">horarios finalizados</button>
+                <button className = "button">Horarios finalizados</button>
                 <button className = "button">Quienes somos</button>
                         {/* <div data-aos="fade-up">
                         <h1>HOLA</h1>
