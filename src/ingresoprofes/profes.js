@@ -18,10 +18,10 @@ const formulario = {
   const [name, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
-  //const diasDisp = [];
+  const diasDisp = [];
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`The name you entered was: ${name}`)
+    alert(`The name you entered was: ${name} ${apellido} de ${materia}`)
     
   }
 
@@ -61,7 +61,6 @@ const formulario = {
 }
 
 const Square = (props) => {
-  //const [disp, setDisp] = useState(false);
   return (
     <div className="square">
       <div className = "hora"> 
