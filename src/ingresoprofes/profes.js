@@ -18,7 +18,6 @@ const formulario = {
   const [name, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
-  const diasDisp = [];
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`The name you entered was: ${name} ${apellido} de ${materia}`)
@@ -61,14 +60,31 @@ const formulario = {
 }
 
 const Square = (props) => {
-  return (
-    <div className="square">
-      <div className = "hora"> 
+  const [tocado, setToca] = useState(false);
+
+  function Tocar (){
+   tocado? setToca(false): setToca(true)
+  }
+
+  if (tocado === true){  
+    return (
+    <div className="square" onClick={Tocar}>
+      <div className = "click"> 
+      ✅
       </div>
     </div>
   );
 }
-
+  else{
+    return (
+    <div className="square" onClick={Tocar}>
+      <div className = "click"> 
+      
+      </div>
+    </div>
+  );
+}
+}
 const Hora = (props) => {
   return (
     <div className="izq">
