@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route element = {<Inputs/>} path = "/profesores"/> 
-        <Route element = {<Inicio/>} path = "/inicio"/>
+        <Route element = {<Inicio/>} path = "/"/>
         <Route element = {<Game/>} path = "/horarios"/>
      </Routes>
     </Router>
