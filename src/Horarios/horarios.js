@@ -3,9 +3,9 @@ import "./styleHorario.css"
 
 const Square = (props) => {
     return (
-      <div className="square">
-        <p className="numero">{props.num}</p>
-        <div className = "hora">
+      <div className="horariossquare">
+        <p className="horariosnumero">{props.num}</p>
+        <div className = "horarioshora">
             {props.hora}
         </div>
       </div>
@@ -13,7 +13,7 @@ const Square = (props) => {
   }
 const Dia = (props) => {
     return (
-      <div className="dia">
+      <div className="horariosdia">
         {props.dia}
       </div>
     );
@@ -31,15 +31,15 @@ function Board() {
 
     return (
       <div>
-        <h1 className="status">{status}</h1>
-        <div className="board-row">
+        <h1 className="horariosstatus">{status}</h1>
+        <div className="horariosboard-row">
           {renderDia("Viernes")}
           {renderDia("Jueves")}
           {renderDia("Miercoles")}
           {renderDia("Martes")}
           {renderDia("Lunes")}
         </div>
-        <div className="board-row">
+        <div className="horariosboard-row">
           {renderSquare()}
           {renderSquare()}
           {renderSquare()}
@@ -47,7 +47,7 @@ function Board() {
           {renderSquare()}
           {renderSquare("1°","7:45 - 9:05")}
         </div>
-        <div className="board-row">
+        <div className="horariosboard-row">
           {renderSquare()}
           {renderSquare()}
           {renderSquare()}
@@ -56,7 +56,7 @@ function Board() {
           {renderSquare("2°","9:20 - 10:40")}
 
         </div>
-        <div className="board-row">
+        <div className="horariosboard-row">
           {renderSquare()}
           {renderSquare()}
           {renderSquare()}
@@ -65,7 +65,7 @@ function Board() {
           {renderSquare("3°","10:55 - 12:15")}
 
         </div>
-        <div className="board-row">
+        <div className="horariosboard-row">
           {renderDia()}
           {renderDia()}
           {renderDia()}
@@ -73,7 +73,7 @@ function Board() {
           {renderDia()}
           {renderDia()}
         </div>
-        <div className="board-row">
+        <div className="horariosboard-row">
           {renderSquare()}
           {renderSquare()}
           {renderSquare()}
@@ -82,7 +82,7 @@ function Board() {
           {renderSquare("4°","13:10 - 14:30")}
 
         </div>
-        <div className="board-row">
+        <div className="horariosboard-row">
           {renderSquare()}
           {renderSquare()}
           {renderSquare()}
@@ -91,7 +91,7 @@ function Board() {
           {renderSquare("5°","14:40 - 16:00")}
 
         </div>
-        <div className="board-row">
+        <div className="horariosboard-row">
           {renderSquare()}
           {renderSquare()}
           {renderSquare()}
@@ -106,11 +106,11 @@ function Board() {
 
 function Game (){
     return (
-      <div className="game">
-        <div className="game-board">
+      <div className="horariosgame">
+        <div className="horariosgame-board">
           <Board />
         </div>
-        <div className="game-info">
+        <div className="horariosgame-info">
         </div>
       </div>
     );

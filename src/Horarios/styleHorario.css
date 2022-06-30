@@ -1,4 +1,4 @@
-body {
+.horariosbody {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
     background-color: lightblue;
@@ -8,20 +8,20 @@ body {
     padding-left: 30px;
   }
   
-  .board-row:after {
+  .horariosboard-row:after {
     display: flex;
     clear: both;
     content: "";
     display: table;
   }
   
-  .status {
+  .horariosstatus {
     display: flex;
     margin-bottom: 5px;
     justify-content: center;
   }
   
-  .square {
+  .horariossquare {
     background: #fff;
     border: 1px solid #999;
     float: right;
@@ -35,7 +35,7 @@ body {
     text-align: center;
     width: 150px;
   }
-  .dia {
+  .horariosdia {
     background: #ffffff;
     border: 1px solid #999;
     float: right;
@@ -50,7 +50,7 @@ body {
     width: 150px;
   }
   
-  .square:focus {
+  .horariossquare:focus {
     outline: none;
   }
   
@@ -58,22 +58,22 @@ body {
     background: #ddd;
   }
   
-  .game {
+  .horariosgame {
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
   
-  .game-info {
+  .horariosgame-info {
     justify-content: center;
   }
   
-  .numero{
+  .horariosnumero{
     height: 30px;
     margin: 0;
   }
   
-  .hora {
+  .horarioshora {
     font-size: 13px;
     font-weight: bold;
     text-align: center;

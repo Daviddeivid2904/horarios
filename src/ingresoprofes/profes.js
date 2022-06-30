@@ -64,69 +64,18 @@ const formulario = {
 const Square = (props) => {
 
   const [tocado, setToca] = useState(false);
-
-  // const [lunes_1, setlunes_1] = useState(false);
-  // const [lunes_2, setlunes_2] = useState(false);
-  // const [lunes_3, setlunes_3] = useState(false);
-  // const [lunes_4, setlunes_4] = useState(false);
-  // const [lunes_5, setlunes_5] = useState(false);
-  // const [lunes_6, setlunes_6] = useState(false);
-
-  // const [martes_1, setmartes_1] = useState(false);
-  // const [martes_2, setmartes_2] = useState(false);
-  // const [martes_3, setmartes_3] = useState(false);
-  // const [martes_4, setmartes_4] = useState(false);
-  // const [martes_5, setmartes_5] = useState(false);
-  // const [martes_6, setmartes_6] = useState(false);
-
-  // const [miercoles_1, setmiercoles_1] = useState(false);
-  // const [miercoles_2, setmiercoles_2] = useState(false);
-  // const [miercoles_3, setmiercoles_3] = useState(false);
-  // const [miercoles_4, setmiercoles_4] = useState(false);
-  // const [miercoles_5, setmiercoles_5] = useState(false);
-  // const [miercoles_6, setmiercoles_6] = useState(false);
-
-  // const [jueves_1, setjueves_1] = useState(false);
-  // const [jueves_2, setjueves_2] = useState(false);
-  // const [jueves_3, setjueves_3] = useState(false);
-  // const [jueves_4, setjueves_4] = useState(false);
-  // const [jueves_5, setjueves_5] = useState(false);
-  // const [jueves_6, setjueves_6] = useState(false);
-
-  // const [viernes_1, setviernes_1] = useState(false);
-  // const [viernes_2, setviernes_2] = useState(false);
-  // const [viernes_3, setviernes_3] = useState(false);
-  // const [viernes_4, setviernes_4] = useState(false);
-  // const [viernes_5, setviernes_5] = useState(false);
   
-
   function Tocar (){
-   tocado? setToca(false): setToca(true)
-  }
-
-  if (tocado === true){  
-    //console.log("lunes 1 esta " + lunes_1)
-    //props.dia(true)
-    //console.log("lunes 1 esta " + lunes_1)
-    return (
-    <div className="square" onClick={Tocar}>
-      <div className = "click"> 
-      ✅
-      </div>
-    </div>
-  );
-}
-  else{
-    //props.dia(false);
-    return (
-    <div className="square" onClick={Tocar}>
-      <div className = "click"> 
-      
-      </div>
-    </div>
-  );
-}
-}
+       tocado? setToca(false): setToca(true)
+      }
+        return (
+        <div className="square" onClick={Tocar}>
+          <div className = "click">
+            {tocado ? "✅" : ""}
+          </div>
+        </div>
+      );
+    }
 const Hora = (props) => {
   return (
     <div className="izq">
