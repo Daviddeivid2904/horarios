@@ -1,4 +1,4 @@
-.button {
+.iniciobutton {
     background-color: #4CAF50; /* Green */
     border: 15px 15px;
     color: white;
@@ -11,14 +11,14 @@
     border-radius: 20px;
     width: 80%;
 }
-.espacio {
+.inicioespacio {
     display: flex;
     margin-top: 40vh;  
     align-items: center;
     flex-direction: column;
 }
 
-.body {
+.iniciobody {
     background-color: white;
     display: flex;
     justify-content: center;

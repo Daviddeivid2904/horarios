@@ -10,11 +10,11 @@ function Inicio () {
     },[]);
 
     return(
-        <div className = "body">
-            <div className = "espacio">
-                <button className = "button" data-aos="fade-down" >Hacer Horarios</button>
-                <button className = "button" data-aos="zoom-in"><NavLink style={{textDecoration : 'none'}} className = 'texto' to = "/horarios">Horarios finalizados </NavLink> </button>
-                <button className = "button" data-aos="fade-up">Quienes somos</button>
+        <div className = "iniciobody">
+            <div className = "inicioespacio">
+                <button className = "iniciobutton" data-aos="fade-down" >Hacer Horarios</button>
+                <button className = "iniciobutton" data-aos="zoom-in"><NavLink style={{textDecoration : 'none'}} className = 'texto' to = "/horarios">Horarios finalizados </NavLink> </button>
+                <button className = "iniciobutton" data-aos="fade-up">Quienes somos</button>
             </div>
         </div>
     )
