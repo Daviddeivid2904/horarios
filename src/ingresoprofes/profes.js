@@ -11,19 +11,28 @@ function Inputs() {
     textalign: "center"
   }
 
-const formulario = {
+ const formulario = {
   background:"lightblue",
 }
 
-  const [name, setName] = useState("");
+  const [nombre, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`The name you entered was: ${name} ${apellido} de ${materia}`)
+    alert(`The name you entered was: ${nombre} ${apellido} de ${materia}`)
     
+//   const horarioVacio = {
+//     lunes: [false, false, false, false, false, false],
+//     martes: [false, false, false, false, false, false],
+//     miercoles: [false, false, false, false, false, false],
+//     jueves: [false, false, false, false, false, false],
+//     viernes: [false, false, false, false, false],
+//   };
+//   const [horario, setHorario] = useState(horarioVacio);
+
   }
 
   return (
@@ -32,12 +41,12 @@ const formulario = {
       <label>ingrese su nombre:
         <input 
           type="text" 
-          value={name}
+          value={nombre}
           onChange={(e) => setName(e.target.value)}
         />
       </label>
       <button className = "error">Enviar</button>
-      <h1 style={bigblue}>{name.toLowerCase()}</h1>
+      <h1 style={bigblue}>{nombre.toLowerCase()}</h1>
 
       <label>ingrese apellido:
         <input 
@@ -94,11 +103,7 @@ const Dia = (props) => {
   );
 }
 
-function Board({ horario }) {
-  const renderHora = (num,hora) => {
-    return <Hora hora = {hora} num = {num}/>;
-  }
-
+function Board() {
     const cuadradito = [];
     const cuadraDias = [];
     const vacio = []
@@ -112,7 +117,7 @@ function Board({ horario }) {
 
   function paraDias (){
 
-     const dias = ["Viernes","jueves" , "Miercoles", "Martes","Lunes"]
+     const dias = ["Viernes", "jueves" , "Miercoles", "Martes","Lunes"]
 
     for (var i = 0; i <= 4; i++) {
       cuadraDias.push(
@@ -134,6 +139,8 @@ function Board({ horario }) {
 
   return(
     <div>
+      <h1 className="status">Horarios disponibles: </h1>
+      <br></br>
       <div className= "board-row">
         {paraDias()}
         {cuadraDias}
