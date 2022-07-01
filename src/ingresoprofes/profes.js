@@ -99,9 +99,9 @@ function Board({ horario }) {
     return <Hora hora = {hora} num = {num}/>;
   }
 
-const cuadradito = [];
-const cuadraDias = []
-
+    const cuadradito = [];
+    const cuadraDias = [];
+    const vacio = []
   function bloques (){
   for (var i = 1; i <= 5; i++) {
     cuadradito.push(
@@ -120,18 +120,58 @@ const cuadraDias = []
       )
       }
     }
+    function diasVacios (){
+
+      const dias = ["","", "","","",""]
+ 
+     for (var i = 0; i <= 5; i++) {
+       vacio.push(
+       <Dia dia = {dias[i]}/>
+       )
+       }
+     }
+  
 
   return(
     <div>
-    <div className= "board-row">
-   {paraDias()}
-   {cuadraDias}
-    </div>
-    <div className= "board-row">
-   {bloques()}
-   {cuadradito}
-    <Hora hora = "1" num = "7:45 - 9:05"/>;
-    </div>
+      <div className= "board-row">
+        {paraDias()}
+        {cuadraDias}
+      </div>
+      <div className= "board-row">
+        {bloques()}
+        {cuadradito}
+        <Hora hora = "7:45 - 9:05"num = "1" />
+      </div>
+      <div className= "board-row">
+        {cuadradito}
+        <Hora hora = "9:20 - 10:40"num = "2" />
+      </div>
+      <div className= "board-row">
+        {cuadradito}
+        <Hora hora = "10:55 - 12:15" num = "3" />
+      </div>
+
+      <div className= "board-row">
+        {diasVacios()}
+        {vacio}
+      </div>
+
+      <div className= "board-row">
+        {cuadradito}
+        <Hora hora = "13:10 - 14:30"num = "4" />
+      </div>
+      <div className= "board-row">
+        {cuadradito}
+        <Hora hora = "14:40 - 16:00"num = "5" />
+      </div>
+      <div className= "board-row">
+        {cuadradito}
+        <Hora hora = "16:10 - 17:30"num = "6" />
+      </div>
+      
+      
+      
     </div>
   );
  
