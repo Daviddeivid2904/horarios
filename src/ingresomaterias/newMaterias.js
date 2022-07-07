@@ -23,7 +23,6 @@ function Materia(){
           onChange={(e) => setNombreMateria(e.target.value)}
         />
       </label>
-      <button>Enviar</button>
 
       <br></br>  <br></br>  <br></br>
 
@@ -46,6 +45,10 @@ function Materia(){
           checked = {seguida}
         />
       </label>
+      
+      <br></br>  <br></br>  <br></br>
+
+      <button>Guardar</button>
     </form>
     )
 }
