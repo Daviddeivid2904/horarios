@@ -19,24 +19,25 @@ function Inputs() {
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`The name you entered was: ${nombre} ${apellido} de ${materia}`)
+    newHorario.lunes[0] = true;
+    setHorario(newHorario)
+    console.log(horario)
     
-  const horarioVacio = {
-    lunes: [false, false, false, false, false, false],
-    martes: [false, false, false, false, false, false],
-    miercoles: [false, false, false, false, false, false],
-    jueves: [false, false, false, false, false, false],
-    viernes: [false, false, false, false, false],
-  };
-  // const [horario, setHorario] = useState(horarioVacio);
-  // newHorario = [... horario];
-  // newHorario.lunes[0] = true;
-  // setHorario(newHorario)
-
   }
+  
+  const horarioVacio = {
+    lunes:     [false, false, false, false, false, false],
+    martes:    [false, false, false, false, false, false],
+    miercoles: [false, false, false, false, false, false],
+    jueves:    [false, false, false, false, false, false],
+    viernes:   [false, false, false, false, false],
+  };
+
+  const [horario, setHorario] = useState(horarioVacio);
+  const newHorario = {...horario};
 
   return (
     <div style = {formulario}>
@@ -145,7 +146,7 @@ function Board() {
        const cuadradito = [];
        const horas = ["7:45 - 9:05","9:20 - 10:40", "10:55 - 12:15"] 
        for (var i = 1; i <= 5; i++) {
-         cuadradito.push(<Square tocado={}/>)
+         cuadradito.push(<Square Fila = {i}/>)
     }
 
     return(  
