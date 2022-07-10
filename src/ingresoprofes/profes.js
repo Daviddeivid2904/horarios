@@ -64,23 +64,27 @@ function Inputs() {
 }
 
 
-const horarioVacio = {
-  lunes:     [false, false, false, false, false, false],
-  martes:    [false, false, false, false, false, false],
-  miercoles: [false, false, false, false, false, false],
-  jueves:    [false, false, false, false, false, false],
-  viernes:   [false, false, false, false, false],
-};
+const horarioVacio = [
+  [false, false, false, false, false, false,"lunes"],
+  [false, false, false, false, false, false,"martes"],
+  [false, false, false, false, false, false,"miercoles"],
+  [false, false, false, false, false, false,"jueves"],
+  [false, false, false, false, false,"viernes"],
+];
 
 
 const Square = (props) => {
+
   const [tocado, setToca] = useState(false);
   const [horario, setHorario] = useState(horarioVacio);
-  const newHorario = {...horario};
+  const newHorario = [...horario];
+
   function Tocar (){
        tocado? setToca(false): setToca(true)
-       tocado? newHorario.lunes[props.Fila] = false: newHorario.lunes[props.Fila] = true
+       tocado? newHorario[props.Fila][props.Columna] = false: newHorario[props.Columna][props.Fila] = true
        setHorario(newHorario)
+       console.log(props.Columna)
+       console.log(props.Fila)
        console.log(horario)
       }
         return (
@@ -145,16 +149,12 @@ function Board() {
 
      
   function tabla1(){
-       const cuadradito = [];
        const horas = ["7:45 - 9:05","9:20 - 10:40", "10:55 - 12:15"] 
-       for (var i = 4; i >= 0; i--) {
-         cuadradito.push(<Square Fila = {i}/>)
-    }
-
+       const cant_veces = [4,3,2,1,0]
     return(  
       horas.map(numero => 
         <div className= "board-row"> 
-          {cuadradito}
+          {cant_veces.map(i => <Square Columna = {i} Fila = {horas.indexOf(numero)}/>)}
           <Hora hora = {numero} num = {horas.indexOf(numero) + 1}/>
         </div> 
         )
@@ -162,16 +162,12 @@ function Board() {
   }
 
   function tabla2(){
-    const cuadradito = [];
     const horas = ["13:10 - 14:30","14:40 - 16:00", "16:10 - 17:30"] 
-    for (var i = 4; i >= 0; i--) {
-      cuadradito.push(<Square Fila = {i}/>)
- }
-
+    const cant_veces = [4,3,2,1,0]
  return(  
    horas.map(numero => 
      <div className= "board-row"> 
-       {cuadradito}
+       {cant_veces.map(i => <Square Columna = {i} Fila = {horas.indexOf(numero) + 3}/>)}
        <Hora hora = {numero} num = {horas.indexOf(numero) + 4}/>
      </div> 
      )
