@@ -22,22 +22,11 @@ function Inputs() {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`The name you entered was: ${nombre} ${apellido} de ${materia}`)
-    newHorario.lunes[0] = true;
-    setHorario(newHorario)
-    console.log(horario)
-    
+
+ 
   }
   
-  const horarioVacio = {
-    lunes:     [false, false, false, false, false, false],
-    martes:    [false, false, false, false, false, false],
-    miercoles: [false, false, false, false, false, false],
-    jueves:    [false, false, false, false, false, false],
-    viernes:   [false, false, false, false, false],
-  };
 
-  const [horario, setHorario] = useState(horarioVacio);
-  const newHorario = {...horario};
 
   return (
     <div style = {formulario}>
@@ -74,12 +63,25 @@ function Inputs() {
   )
 }
 
-const Square = (props) => {
 
+const horarioVacio = {
+  lunes:     [false, false, false, false, false, false],
+  martes:    [false, false, false, false, false, false],
+  miercoles: [false, false, false, false, false, false],
+  jueves:    [false, false, false, false, false, false],
+  viernes:   [false, false, false, false, false],
+};
+
+
+const Square = (props) => {
   const [tocado, setToca] = useState(false);
-  
+  const [horario, setHorario] = useState(horarioVacio);
+  const newHorario = {...horario};
   function Tocar (){
        tocado? setToca(false): setToca(true)
+       newHorario.lunes[0] = true;
+       setHorario(newHorario)
+       console.log(horario)
       }
         return (
         <div className="square" onClick={Tocar}>
