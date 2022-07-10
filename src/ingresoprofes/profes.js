@@ -79,7 +79,7 @@ const Square = (props) => {
   const newHorario = {...horario};
   function Tocar (){
        tocado? setToca(false): setToca(true)
-       newHorario.lunes[0] = true;
+       tocado? newHorario.lunes[props.Fila] = false: newHorario.lunes[props.Fila] = true
        setHorario(newHorario)
        console.log(horario)
       }
@@ -147,7 +147,7 @@ function Board() {
   function tabla1(){
        const cuadradito = [];
        const horas = ["7:45 - 9:05","9:20 - 10:40", "10:55 - 12:15"] 
-       for (var i = 1; i <= 5; i++) {
+       for (var i = 4; i >= 0; i--) {
          cuadradito.push(<Square Fila = {i}/>)
     }
 
@@ -164,8 +164,8 @@ function Board() {
   function tabla2(){
     const cuadradito = [];
     const horas = ["13:10 - 14:30","14:40 - 16:00", "16:10 - 17:30"] 
-    for (var i = 1; i <= 5; i++) {
-      cuadradito.push(<Square/>)
+    for (var i = 4; i >= 0; i--) {
+      cuadradito.push(<Square Fila = {i}/>)
  }
 
  return(  
