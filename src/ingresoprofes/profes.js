@@ -21,7 +21,7 @@ function Inputs() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`The name you entered was: ${nombre} ${apellido} de ${materia}`)
+    alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${Square.horario}`)
 
  
   }
@@ -83,8 +83,6 @@ const Square = (props) => {
        tocado? setToca(false): setToca(true)
        tocado? newHorario[props.Fila][props.Columna] = false: newHorario[props.Columna][props.Fila] = true
        setHorario(newHorario)
-       console.log(props.Columna)
-       console.log(props.Fila)
        console.log(horario)
       }
         return (

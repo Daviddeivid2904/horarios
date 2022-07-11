@@ -1,0 +1,14 @@
+.contenedor{
+  background: grey;
+  height: 120px;
+}
+
+.activo{
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.desactivo{
+text-decoration: none;
+}
