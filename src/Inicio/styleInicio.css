@@ -1,3 +1,7 @@
+body{
+    margin: 0;
+}
+
 .iniciobutton {
     background-color: #4CAF50; /* Green */
     border: 15px 15px;
@@ -18,12 +22,12 @@
 }
 
 .iniciobody {
-    position: relative;
     background-color: lightblue;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 225px;
+    height: calc(100vh - 120px);
+    padding: 150px;
+    box-sizing: border-box;
 }
 
 .texto {

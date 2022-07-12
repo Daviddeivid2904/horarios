@@ -1,8 +1,3 @@
-.horariosbody {
-    font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
-    background-color: lightblue;
-  }
   
   ol, ul {
     padding-left: 30px;
@@ -62,6 +57,10 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: lightblue;
+    height: calc(vh - 120px);
+    padding: 150px;
+    box-sizing: border-box;
   }
   
   .horariosgame-info {

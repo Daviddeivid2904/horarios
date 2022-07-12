@@ -15,7 +15,7 @@ function Materia(){
       alert(`la materia: ${nombreMateria} tendra ${horas} bloques por semana y ${seguida}`)
     }
     return(
-<form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} className="materiabody">
       <label>ingrese nombre de la materia:
         <input 
           type="text" 
