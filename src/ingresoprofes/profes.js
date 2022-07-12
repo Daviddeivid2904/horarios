@@ -81,7 +81,10 @@ const Square = (props) => {
 
   function Tocar (){
        tocado? setToca(false) : setToca(true)
-       tocado? newHorario[props.Fila][props.Columna] = false: newHorario[props.Columna][props.Fila] = true
+
+       if(tocado) newHorario[props.Fila][props.Columna] = false 
+       else newHorario[props.Columna][props.Fila] = true
+       
        setHorario(newHorario)
        console.log(horario)
       }
