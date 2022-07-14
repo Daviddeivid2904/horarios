@@ -65,11 +65,11 @@ function Inputs() {
 
 
 const horarioVacio = [
-  [false, false, false, false, false, false,"lunes"],
-  [false, false, false, false, false, false,"martes"],
-  [false, false, false, false, false, false,"miercoles"],
-  [false, false, false, false, false, false,"jueves"],
-  [false, false, false, false, false,"viernes"],
+  [false, false, false, false, false, false],
+  [false, false, false, false, false, false],
+  [false, false, false, false, false, false],
+  [false, false, false, false, false, false],
+  [false, false, false, false, false],
 ];
 
 
@@ -82,10 +82,15 @@ const Square = (props) => {
   function Tocar (){
        tocado? setToca(false) : setToca(true)
 
-       if(tocado) newHorario[props.Fila][props.Columna] = false 
-       else newHorario[props.Columna][props.Fila] = true
+       if(tocado) {
+        newHorario[props.Columna][props.Fila] = false 
+      }
+       else {
+        newHorario[props.Columna][props.Fila] = true 
+      }
        
        setHorario(newHorario)
+       console.log(tocado)
        console.log(horario)
       }
         return (
