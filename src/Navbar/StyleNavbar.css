@@ -1,14 +1,23 @@
 .navcontenedor{
   background: #ffb17c;
   height: 120px;
+  font-size: 35px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .activo{
   color: red;
-  font-weight: bold;
   text-decoration: underline;
 }
 
 .desactivo{
 text-decoration: none;
+display: block;
+width: 60px;
+text-align: center;
+padding: 14px 16px;
 }
+
