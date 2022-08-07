@@ -2,19 +2,21 @@
   background: #ffb17c;
   font-size: 35px;
   padding: 3vh;
-  padding-left: 50vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .activo{
   color: red;
   text-decoration: underline;
   display: inline;
-  margin-right: 100px;
+  margin-right: 6vh;
 }
 
 .desactivo{
 text-decoration: none;
 display: inline;
-margin-right: 100px;
+margin-right: 6vh;
 }
 
