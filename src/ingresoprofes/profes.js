@@ -11,10 +11,6 @@ function Inputs() {
     textalign: "center"
   }
 
- const formulario = {
-  background:"lightblue",
-}
-
   const [nombre, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
@@ -29,19 +25,20 @@ function Inputs() {
 
 
   return (
-    <div style = {formulario}>
+    <div className = "formulario">
     <form onSubmit={handleSubmit}>
-      <label>ingrese su nombre:
+      <label>Nombre del docente:
+      <br></br>
         <input 
           type="text" 
           value={nombre}
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-      <button className = "error">Enviar</button>
       <h1 style={bigblue}>{nombre.toLowerCase()}</h1>
 
-      <label>ingrese apellido:
+      <label>Apellido del docente:
+      <br></br>
         <input 
           type="text" 
           value={apellido}
@@ -49,7 +46,8 @@ function Inputs() {
         />
       </label>
       <h1 style={bigblue}>{apellido.toLowerCase()}</h1>
-      <label>ingrese materia:
+      <label>Materia que da:
+      <br></br>
         <input 
           type="text" 
           value={materia}
@@ -58,6 +56,7 @@ function Inputs() {
       </label>
       <h1 style={bigblue}>{materia.toLowerCase()}</h1>
       <Horarios/>
+      <button className = "error">Enviar</button>
     </form>
     </div>
   )
@@ -65,11 +64,11 @@ function Inputs() {
 
 
 const horarioVacio = [
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false],
+  [false, false, false, false, false, false,"lunes"],
+  [false, false, false, false, false, false,"martes"],
+  [false, false, false, false, false, false,"miercoles"],
+  [false, false, false, false, false, false,"jueves"],
+  [false, false, false, false, false,"viernes"],
 ];
 
 
@@ -82,15 +81,10 @@ const Square = (props) => {
   function Tocar (){
        tocado? setToca(false) : setToca(true)
 
-       if(tocado) {
-        newHorario[props.Columna][props.Fila] = false 
-      }
-       else {
-        newHorario[props.Columna][props.Fila] = true 
-      }
+       if(tocado) newHorario[props.Fila][props.Columna] = false 
+       else newHorario[props.Columna][props.Fila] = true
        
        setHorario(newHorario)
-       console.log(tocado)
        console.log(horario)
       }
         return (

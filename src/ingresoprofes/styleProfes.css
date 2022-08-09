@@ -3,6 +3,16 @@
   color: red;
 }
 
+.formulario{
+  background-color: lightblue;
+  margin-left:400px;
+  margin-right:400px;
+  margin-top: 30px;
+  border-radius: 30px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
 ol, ul {
   padding-left: 30px;
@@ -25,15 +35,15 @@ ol, ul {
   background: #fff;
   border: 1px solid #999;
   float: right;
-  font-size: 30px;
+  font-size: 15px;
   font-weight: bold;
-  line-height: 100px;
-  height: 102px;
+  line-height: 50px;
+  height: 51px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 150px;
+  width: 75px;
 }
 
 .izq:focus {
@@ -44,15 +54,15 @@ ol, ul {
   background: #fff;
   border: 1px solid #999;
   float: right;
-  font-size: 30px;
+  font-size: 15px;
   font-weight: bold;
-  line-height: 100px;
-  height: 102px;
+  line-height: 50px;
+  height: 51px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 150px;
+  width: 75px;
 }
 .square:hover {
   background-color: gray;
@@ -61,15 +71,15 @@ ol, ul {
   background: #ffffff;
   border: 1px solid #999;
   float: right;
-  font-size: 24px;
+  font-size: 12px;
   font-weight: bold;
-  line-height: 34px;
-  height: 30px;
+  line-height: 17px;
+  height: 15px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 150px;
+  width: 75px;
 }
 
 .square:focus {
@@ -91,18 +101,18 @@ ol, ul {
 }
 
 .numero{
-  height: 30px;
+  height: 15px;
   margin: 0;
 }
 
 .hora {
-  font-size: 13px;
+  font-size: 6.5px;
   font-weight: bold;
   text-align: center;
 }
 
 .click {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
 }
