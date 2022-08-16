@@ -10,7 +10,7 @@ function Inputs() {
     fontfamily: "Sans-Serif",
     textalign: "center"
   }
-
+  fetch("https://github.com/delfibrunstein/restapi.git")
   const [nombre, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
