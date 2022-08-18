@@ -31,31 +31,35 @@ const Inputs = props => {
       <label>Nombre del docente:
       <br></br>
         <input 
+          className = "inputs"
+          placeholder = "Escribe aquí"
           type="text" 
           value={nombre}
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-      <h1 style={bigblue}>{nombre.toLowerCase()}</h1>
-
+      <br></br>
       <label>Apellido del docente:
       <br></br>
         <input 
+          className = "inputs"
+          placeholder = "Escribe aquí"
           type="text" 
           value={apellido}
           onChange={(e) => setApellido(e.target.value)}
         />
       </label>
-      <h1 style={bigblue}>{apellido.toLowerCase()}</h1>
+      <br></br>
       <label>Materia que da:
       <br></br>
         <input 
+          className = "inputs"
+          placeholder = "Escribe aquí"
           type="text" 
           value={materia}
           onChange={(e) => setMateria(e.target.value)}
         />
       </label>
-      <h1 style={bigblue}>{materia.toLowerCase()}</h1>
       <Horarios/>
       <button className = "boton">Enviar</button>
       <button onClick = {props.onClose} className = "boton">Cerrar</button>

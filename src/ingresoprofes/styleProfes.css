@@ -25,6 +25,15 @@
   align-items: center;
 }
 
+.inputs{
+  width: 60%;
+  height: 25px;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  border:none;
+}
+
 ol, ul {
   padding-left: 30px;
 }
