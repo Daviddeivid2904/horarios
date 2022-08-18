@@ -10,7 +10,6 @@ function Inputs() {
     fontfamily: "Sans-Serif",
     textalign: "center"
   }
-  fetch("https://github.com/delfibrunstein/restapi.git")
   const [nombre, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
@@ -18,12 +17,8 @@ function Inputs() {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${Square.horario}`)
-
- 
   }
   
-
-
   return (
     <div className = "formulario">
     <form onSubmit={handleSubmit}>

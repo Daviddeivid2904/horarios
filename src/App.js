@@ -1,6 +1,6 @@
 import React from 'react';
-import {Inputs} from "./ingresoprofes/nuevoProfes";
-import {ListaProfesores} from "./ingresoprofes/profesores";
+//import {Inputs} from "./ingresoprofes/nuevoProfes";
+import {ListaProfes} from "./ingresoprofes/profesores";
 import {Inicio} from "./Inicio/inicio";
 import {Game} from "./Horarios/horarios";
 import {Materia} from "./ingresomaterias/newMaterias";
@@ -14,7 +14,7 @@ function App() {
       <Navbar/>
 
       <Routes>
-        <Route element = {<ListaProfesores/>} path = "/profesores"/> 
+        <Route element = {<ListaProfes/>} path = "/profesores"/> 
         <Route element = {<Inicio/>} path = "/"/>
         <Route element = {<Game/>} path = "/horarios"/>
         <Route element = {<Materia/>} path = "/nuevaMateria"/>
