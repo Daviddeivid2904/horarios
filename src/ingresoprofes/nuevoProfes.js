@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from 'react';
 import "./styleProfes.css"
 export {Inputs}
-function Inputs() {
+const Inputs = props => {
 
   const bigblue = {
     color: "blue",
@@ -14,13 +14,19 @@ function Inputs() {
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${Square.horario}`)
   }
   
+  if(!props.show){
+    return null
+  }
+
   return (
-    <div className = "formulario">
+    <div className = "shadow">
+      <div className = "formulario">
     <form onSubmit={handleSubmit}>
       <label>Nombre del docente:
       <br></br>
@@ -51,8 +57,10 @@ function Inputs() {
       </label>
       <h1 style={bigblue}>{materia.toLowerCase()}</h1>
       <Horarios/>
-      <button className = "error">Enviar</button>
+      <button className = "boton">Enviar</button>
+      <button onClick = {props.onClose} className = "boton">Cerrar</button>
     </form>
+    </div>
     </div>
   )
 }
