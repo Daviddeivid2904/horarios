@@ -8,13 +8,6 @@ function ListaMaterias() {
 
 const [show,setShow] = useState(false);
 
-fetch("brain-planner.sql")
-.then(response => response.json())
-.then(data=>{
-console.log(data)
-})
-.catch(err=>console.log(err))
-
     return (
 <div>
     <div className='listamaterias'>

@@ -3,12 +3,14 @@
 //import userRoutes from './rutas/users.js';
 const mysql = require('mysql');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 5000;
 var bodyParser = require('body-Parser');
 
 
 app.use(bodyParser.json());
+app.use(cors());
 
 
 
