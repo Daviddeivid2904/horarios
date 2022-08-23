@@ -1,15 +1,8 @@
 import { useState } from "react";
 import React from 'react';
 import "./styleProfes.css"
-export {Inputs}
 const Inputs = props => {
 
-  const bigblue = {
-    color: "blue",
-    padding: "40",
-    fontfamily: "Sans-Serif",
-    textalign: "center"
-  }
   const [nombre, setName] = useState("");
   const [apellido, setApellido] = useState("");
   const [materia, setMateria] = useState("");
@@ -205,3 +198,6 @@ function Horarios (){
       </div>
     );
   }
+
+  export {Inputs}
+

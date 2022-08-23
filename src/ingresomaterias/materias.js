@@ -17,7 +17,12 @@ console.log(data)
 
     return (
 <div>
-<button onClick={()=> setShow(true)}> show Modal </button>
-<Materia onClose = {()=> setShow(false)} show = {show}/>
+    <div className='listamaterias'>
+
+    </div>
+    <div className = "newMateria">
+        <button className = "botonMateria" onClick={()=> setShow(true)}>Nueva materia</button>
+    </div>
+    <Materia onClose = {()=> setShow(false)} show = {show}/>
 </div>
     )}

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import React from 'react';
 import "./styleMaterias.css"
-export {Materia}
 
 const Materia = props =>{
     const [nombreMateria, setNombreMateria] = useState("");
@@ -57,3 +56,4 @@ const Materia = props =>{
  </div>
     )
 }
+export {Materia}

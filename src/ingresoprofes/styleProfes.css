@@ -16,8 +16,8 @@
 
 .formulario{
   background-color: lightblue;
-  margin-left:400px;
-  margin-right:400px;
+  margin-left:300px;
+  margin-right:300px;
   margin-top: 30px;
   border-radius: 30px;
   display:flex;
@@ -33,6 +33,20 @@
   border: 1px solid black;
   border-radius: 10px;
   border:none;
+}
+
+
+.newProfesor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botonProfesor{
+  width: 50vh;
+  height: 8vh;
+  font-size: 4vh;
+  border-radius: 48px;
 }
 
 ol, ul {
