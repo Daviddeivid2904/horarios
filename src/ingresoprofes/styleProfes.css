@@ -1,6 +1,7 @@
 
 .boton {
-  color: red;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .shadow{
@@ -10,14 +11,20 @@
   right: 0;
   top: 0;
   bottom: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.formHeader{
+display: flex;
+justify-content: right;
+align-items: right;
+}
+
 .formulario{
   background-color: lightblue;
-  margin-left:300px;
-  margin-right:300px;
+  width: 500px;
   margin-top: 30px;
   border-radius: 30px;
   display:flex;

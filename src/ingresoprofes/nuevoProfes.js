@@ -21,6 +21,9 @@ const Inputs = props => {
     <div className = "shadow">
       <div className = "formulario">
     <form onSubmit={handleSubmit}>
+        <div className = "formHeader">
+          <p onClick = {props.onClose} className = "boton">X</p>
+        </div>
       <label>Nombre del docente:
       <br></br>
         <input 
@@ -54,8 +57,7 @@ const Inputs = props => {
         />
       </label>
       <Horarios/>
-      <button className = "boton">Enviar</button>
-      <button onClick = {props.onClose} className = "boton">Cerrar</button>
+      <button className = "boton">Guardar</button>
     </form>
     </div>
     </div>
