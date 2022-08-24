@@ -20,27 +20,14 @@ const getApiData = async () => {
 useEffect(() => {
   getApiData();
 }, []);
-
-const enBruto = []
-const nomMaterias = [];
-
-users.map((user) => (    
-  enBruto.push(user)        
-    ))
-
-enBruto.foreach(mater => {
-    if(nomMaterias.includes(mater)){
-    }
-    else{nomMaterias.push(mater)}
-});
-
     return (
 <div className="lista">
     <Materia onClose = {()=> setShow(false)} show = {show}/>
     <div>
         <ul className='uli'>
-           {nomMaterias && nomMaterias.map((materi) => (
-           <li className='liliana'><div className = "nombres">{materi}</div></li>             
+           {users && users.map((user) => (
+           <li className='liliana'><div className = "nombres">{user.nombre_materia}</div></li>      
+          
              ))}
         </ul>
     </div>
