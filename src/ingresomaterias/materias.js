@@ -24,11 +24,11 @@ useEffect(() => {
 const enBruto = []
 const nomMaterias = [];
 
-users.map(user => {
-    enBruto.push(user.nombre_materia)
-});
+users.map((user) => (    
+  enBruto.push(user)        
+    ))
 
-enBruto.map(mater => {
+enBruto.foreach(mater => {
     if(nomMaterias.includes(mater)){
     }
     else{nomMaterias.push(mater)}
