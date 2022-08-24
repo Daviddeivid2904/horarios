@@ -41,6 +41,19 @@ app.get('/Profesores', (req, res) => {
     });
 });
 
+app.get('/Materias', (req, res) => {
+    
+    const sql = 'SELECT nombre_materia FROM materia'; 
+    connection.query(sql, (error, results) => {
+        if (error) throw error;
+        if (results.length > 0) {
+            res.json(results);
+        } else {
+            res.send('No se encontraron resultados en su busqueda.');
+        }
+    });
+});
+
 
 app.get('/Profesores/:id', (req, res) => {
     const id_profesor = req.params.id;
