@@ -26,11 +26,12 @@ useEffect(() => {
     <div>
         <ul className='uli'>
            {users && users.map((user) => (
-           <li className='liliana'><div className = "nombres">{user.nombre_materia}</div></li>      
-          
+           <div>
+                <li className='liliana'><div className = "nombres">{user.nombre_materia}</div></li>      
+           </div>
              ))}
         </ul>
     </div>
-        <button className = "botonMateria" onClick={()=> setShow(true)}>Nueva materia</button>
+        <button className = "botonAgregar" onClick={()=> setShow(true)}>Nueva materia</button>
 </div>
     )}

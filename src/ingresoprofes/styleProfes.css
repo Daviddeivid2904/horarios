@@ -72,14 +72,6 @@ align-items: right;
   margin-right: 100px;
 }
 
-.botonProfesor{
-  width: 50vh;
-  height: 8vh;
-  font-size: 4vh;
-  border-radius: 48px;
-  border:none;
-}
-
 
 .board-row:after {
   display: flex;

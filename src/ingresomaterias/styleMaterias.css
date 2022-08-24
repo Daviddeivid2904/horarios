@@ -26,7 +26,8 @@
     align-items: center;
   }
 
-  .botonMateria{
+  .botonAgregar{
+    background-color: blueviolet;
     width: 50vh;
     height: 8vh;
     font-size: 4vh;
