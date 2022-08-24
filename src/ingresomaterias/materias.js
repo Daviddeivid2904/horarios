@@ -21,14 +21,26 @@ useEffect(() => {
   getApiData();
 }, []);
 
+const enBruto = []
+const nomMaterias = [];
+
+users.map(user => {
+    enBruto.push(user.nombre_materia)
+});
+
+enBruto.map(mater => {
+    if(nomMaterias.includes(mater)){
+    }
+    else{nomMaterias.push(mater)}
+});
+
     return (
 <div className="lista">
     <Materia onClose = {()=> setShow(false)} show = {show}/>
     <div>
         <ul className='uli'>
-           {users && users.map((user) => (
-           <li className='liliana'><div className = "nombres">{user.nombre_materia}</div></li>      
-          
+           {nomMaterias && nomMaterias.map((materi) => (
+           <li className='liliana'><div className = "nombres">{materi}</div></li>             
              ))}
         </ul>
     </div>
