@@ -23,18 +23,16 @@ useEffect(() => {
 
 
     return (
-<div>
+<div className="lista">
     <Inputs onClose = {()=> setShow(false)} show = {show}/>
-    <div className="app">
-  {users &&
-    users.map((user) => (
-      <div className="item-container">
-        nombre:{user.nombre +" "+ user.apellido}
-      </div>
-   ))}
-</div>
-    <div className = "newProfesor">
-        <button className = "botonProfesor" onClick={()=> setShow(true)}>Nuevo profesor</button>
+    <div>
+        <ul className='uli'>
+           {users && users.map((user) => (
+           <li className='liliana'><div className = "nombres">{user.nombre +" "+ user.apellido}</div></li>      
+          
+             ))}
+        </ul>
     </div>
+        <button className = "botonProfesor" onClick={()=> setShow(true)}>Nuevo profesor</button>
 </div>
     )}

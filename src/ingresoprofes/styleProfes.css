@@ -43,10 +43,33 @@ align-items: right;
 }
 
 
-.newProfesor{
+.lista{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nombres{
+  font-size: 23px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 340px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 48px;
+  padding: 6px;
+  margin-bottom: 33px;
+}
+
+.uli{
+  column-count: 2;
+}
+
+.liliana{
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .botonProfesor{
@@ -57,9 +80,6 @@ align-items: right;
   border:none;
 }
 
-ol, ul {
-  padding-left: 30px;
-}
 
 .board-row:after {
   display: flex;
