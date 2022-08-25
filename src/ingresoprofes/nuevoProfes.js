@@ -10,7 +10,15 @@ const Inputs = props => {
 
   const [materia, setMateria] = useState("");
 
-  const [disponibilidad, setDisponibilidad] = useState([])
+  const horarioVacio = [
+    [false, false, false, false, false, false,"lunes"],
+    [false, false, false, false, false, false,"martes"],
+    [false, false, false, false, false, false,"miercoles"],
+    [false, false, false, false, false, false,"jueves"],
+    [false, false, false, false, false,"viernes"],
+  ];
+
+  const [disponibilidad, setDisponibilidad] = useState(horarioVacio)
 
   
 
@@ -88,7 +96,7 @@ const Inputs = props => {
           onChange={(e) => setMateria(e.target.value)}
         />
       </label>
-      <Horarios /*handleCallback = {handleCallback}*//>
+      <Horarios setDisponibilidad = {setDisponibilidad} disponibilidad = {disponibilidad}/>
       <button className = "boton">Guardar</button>
     </form>
     </div>
@@ -97,28 +105,19 @@ const Inputs = props => {
 }
 
 
-const horarioVacio = [
-  [false, false, false, false, false, false,"lunes"],
-  [false, false, false, false, false, false,"martes"],
-  [false, false, false, false, false, false,"miercoles"],
-  [false, false, false, false, false, false,"jueves"],
-  [false, false, false, false, false,"viernes"],
-];
-
 
 const Square = (props) => {
 
   const [tocado, setToca] = useState(false);
-  const [horario, setHorario] = useState(horarioVacio);
-  const newHorario = [...horario];
+  console.log(props.disponibilidad)
+  const newHorario = [...props.disponibilidad];
   function Tocar (){
        tocado? setToca(false) : setToca(true)
 
        if(tocado) newHorario[props.Fila][props.Columna] = false 
        else newHorario[props.Columna][props.Fila] = true
-       setHorario(newHorario)
-       //props.handleCallback(horario)
-       console.log(horario)
+       props.setDisponibilidad(newHorario)
+       console.log(props.disponibilidad)
       }
         return (
         <div className="square" onClick={Tocar}>
@@ -146,7 +145,7 @@ const Dia = (props) => {
   );
 }
 
-function Board() {
+const Board = (props) => {
     const cuadraDias = [];
     const vacio = []
 
@@ -187,7 +186,7 @@ function Board() {
     return(  
       horas.map(numero => 
         <div className= "board-row"> 
-          {cant_veces.map(i => <Square Columna = {i} Fila = {horas.indexOf(numero)}/>)}
+          {cant_veces.map(i => <Square setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} Columna = {i} Fila = {horas.indexOf(numero)}/>)}
           <Hora hora = {numero} num = {horas.indexOf(numero) + 1}/>
         </div> 
         )
@@ -200,7 +199,7 @@ function Board() {
  return(  
    horas.map(numero => 
      <div className= "board-row"> 
-       {cant_veces.map(i => <Square Columna = {i} Fila = {horas.indexOf(numero) + 3}/>)}
+       {cant_veces.map(i => <Square setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} Columna = {i} Fila = {horas.indexOf(numero) + 3}/>)}
        <Hora hora = {numero} num = {horas.indexOf(numero) + 4}/>
      </div> 
      )
@@ -220,11 +219,11 @@ function Board() {
  
   }
 
-function Horarios (){
+  const Horarios = (props) => {
     return (
       <div className="game">
         <div className="game-board">
-          <Board />
+          <Board setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} />
         </div>
         <div className="game-info">
         </div>

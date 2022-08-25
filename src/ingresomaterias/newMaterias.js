@@ -33,6 +33,10 @@ const Materia = props =>{
     })
     props.getApiData()
 
+    setNombreMateria("");
+    setSeguida(false)
+    setHoras(1)
+
     }
     if(!props.show){
       return null
