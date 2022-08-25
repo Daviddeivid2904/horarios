@@ -1,15 +1,56 @@
 import { useState } from "react";
 import React from 'react';
 import "./styleProfes.css"
+
 const Inputs = props => {
 
   const [nombre, setName] = useState("");
+
   const [apellido, setApellido] = useState("");
+
   const [materia, setMateria] = useState("");
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // fetch('http://localhost:5000/infoProfesor', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     nombre: nombre,
+    //     apellido: apellido,
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json'// AQUI indicamos el formato
+    //   }
+    // })
+    // .then(function(response) {
+    //   return response.text();
+    // })
+    // .then(function(data) {
+    //   console.log(data);
+    // })
+    // .catch(function(error) {
+    //   console.error(error);
+    // })
+
+    fetch('http://localhost:5000/infoProfesor', {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json"
+      }
+      ,
+      body: JSON.stringify({
+             nombre: nombre,
+             apellido: apellido,
+           })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if(data.error) {
+          //hay error
+        } else {
+        }
+      });
     alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${Square.horario}`)
   }
   
