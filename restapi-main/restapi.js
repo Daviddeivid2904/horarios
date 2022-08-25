@@ -43,7 +43,7 @@ app.get('/Profesores', (req, res) => {
 
 app.get('/Materias', (req, res) => {
     
-    const sql = 'SELECT nombre_materia FROM materia'; 
+    const sql = 'SELECT * FROM materia'; 
     connection.query(sql, (error, results) => {
         if (error) throw error;
         if (results.length > 0) {

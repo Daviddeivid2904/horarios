@@ -1,5 +1,5 @@
 import { useState } from "react";
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./styleProfes.css"
 
 const Inputs = props => {
@@ -9,6 +9,11 @@ const Inputs = props => {
   const [apellido, setApellido] = useState("");
 
   const [materia, setMateria] = useState("");
+
+  const [idMateria, setIdMateria] = useState("");
+
+  const [posibles_materias, setPosibles] = useState();
+
 
   const horarioVacio = [
     [false, false, false, false, false, false,"lunes"],
@@ -20,7 +25,23 @@ const Inputs = props => {
 
   const [disponibilidad, setDisponibilidad] = useState(horarioVacio)
 
-  
+  const setaerMateria = (e) =>{
+    console.log(e + "Eeeeeeeeaaaa")
+    setMateria(e.target.value)
+    setIdMateria(e.target.value.id_materia)
+  }
+
+  const getApiData = async () => {
+    const response = await fetch(
+      "http://localhost:5000/materias"
+    ).then((response) => response.json());
+    console.log(response);
+    setPosibles(response);
+  };
+
+  useEffect(() => {
+    getApiData();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +52,7 @@ const Inputs = props => {
         apellido: apellido,
         disponibilidad:disponibilidad,
         materia: materia,
+        id_materia: idMateria,
       }),
       headers: {
         'Content-Type': 'application/json'// AQUI indicamos el formato
@@ -45,8 +67,6 @@ const Inputs = props => {
     .catch(function(error) {
       console.error(error);
     })
-
-    alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${disponibilidad}`)
   }
 
 //   const handleCallback = (e) => {
@@ -86,15 +106,13 @@ const Inputs = props => {
         />
       </label>
       <br></br>
-      <label>Materia que da:
+      <label> Materia que da:
       <br></br>
-        <input 
-          className = "inputs"
-          placeholder = "Escribe aquí"
-          type="text" 
-          value={materia}
-          onChange={(e) => setMateria(e.target.value)}
-        />
+      <select name="materias" onChange={setaerMateria}>
+        {posibles_materias && posibles_materias.map((user) => (
+                <option value = {user.nombre_materia}>{user.nombre_materia}</option>
+             ))}
+      </select>
       </label>
       <Horarios setDisponibilidad = {setDisponibilidad} disponibilidad = {disponibilidad}/>
       <button className = "boton">Guardar</button>
@@ -109,7 +127,6 @@ const Inputs = props => {
 const Square = (props) => {
 
   const [tocado, setToca] = useState(false);
-  console.log(props.disponibilidad)
   const newHorario = [...props.disponibilidad];
   function Tocar (){
        tocado? setToca(false) : setToca(true)
