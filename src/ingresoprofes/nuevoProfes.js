@@ -10,48 +10,44 @@ const Inputs = props => {
 
   const [materia, setMateria] = useState("");
 
+  const horarioVacio = [
+    [false, false, false, false, false, false,"lunes"],
+    [false, false, false, false, false, false,"martes"],
+    [false, false, false, false, false, false,"miercoles"],
+    [false, false, false, false, false, false,"jueves"],
+    [false, false, false, false, false,"viernes"],
+  ];
+
+  const [disponibilidad, setDisponibilidad] = useState(horarioVacio)
+
+  
 
   const handleSubmit = (event) => {
+    console.log(props.coso)
+    setDisponibilidad(props.coso)
     event.preventDefault();
-    // fetch('http://localhost:5000/infoProfesor', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     nombre: nombre,
-    //     apellido: apellido,
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json'// AQUI indicamos el formato
-    //   }
-    // })
-    // .then(function(response) {
-    //   return response.text();
-    // })
-    // .then(function(data) {
-    //   console.log(data);
-    // })
-    // .catch(function(error) {
-    //   console.error(error);
-    // })
-
     fetch('http://localhost:5000/infoProfesor', {
-      method: "POST", 
-      headers: {
-        "Content-Type": "application/json"
-      }
-      ,
+      method: 'POST',
       body: JSON.stringify({
-             nombre: nombre,
-             apellido: apellido,
-           })
+        nombre: nombre,
+        apellido: apellido,
+        disponibilidad:disponibilidad,
+      }),
+      headers: {
+        'Content-Type': 'application/json'// AQUI indicamos el formato
+      }
     })
-      .then(response => response.json())
-      .then(data => {
-        if(data.error) {
-          //hay error
-        } else {
-        }
-      });
-    alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${Square.horario}`)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(data) {
+      console.log(data);
+    })
+    .catch(function(error) {
+      console.error(error);
+    })
+
+    alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${Square.newHorario}`)
   }
   
   if(!props.show){
@@ -132,6 +128,7 @@ const Square = (props) => {
       }
         return (
         <div className="square" onClick={Tocar}>
+          <Inputs coso = {newHorario}/>
           <div className = "click">
             {tocado ? "✅" : ""}
           </div>
