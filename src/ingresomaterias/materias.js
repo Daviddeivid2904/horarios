@@ -20,9 +20,10 @@ const getApiData = async () => {
 useEffect(() => {
   getApiData();
 }, []);
+
     return (
 <div className="lista">
-    <Materia onClose = {()=> setShow(false)} show = {show}/>
+    <Materia onClose = {()=> setShow(false)} refresh = {getApiData()} show = {show}/>
     <div>
         <ul className='uli'>
            {users && users.map((user) => (

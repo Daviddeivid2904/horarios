@@ -122,7 +122,6 @@ app.post('/infoProfesor', (req, res) => {
 
 app.post('/infoMateria', (req, res) => {
     const sql = 'INSERT INTO materia SET ?';
-    if (req.body.continuidad.length !== 1) return res.status(400).send("Error");
     if (req.body.horas_por_semana <= 0 || req.body.horas_por_semana > 6) return res.status(400).send("Error");
     const infoMateria = {
         nombre_materia: req.body.nombre_materia,

@@ -10,21 +10,11 @@ const Inputs = props => {
 
   const [materia, setMateria] = useState("");
 
-  const horarioVacio = [
-    [false, false, false, false, false, false,"lunes"],
-    [false, false, false, false, false, false,"martes"],
-    [false, false, false, false, false, false,"miercoles"],
-    [false, false, false, false, false, false,"jueves"],
-    [false, false, false, false, false,"viernes"],
-  ];
-
-  const [disponibilidad, setDisponibilidad] = useState(horarioVacio)
+  const [disponibilidad, setDisponibilidad] = useState([])
 
   
 
   const handleSubmit = (event) => {
-    console.log(props.coso)
-    setDisponibilidad(props.coso)
     event.preventDefault();
     fetch('http://localhost:5000/infoProfesor', {
       method: 'POST',
@@ -32,6 +22,7 @@ const Inputs = props => {
         nombre: nombre,
         apellido: apellido,
         disponibilidad:disponibilidad,
+        materia: materia,
       }),
       headers: {
         'Content-Type': 'application/json'// AQUI indicamos el formato
@@ -47,9 +38,13 @@ const Inputs = props => {
       console.error(error);
     })
 
-    alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${Square.newHorario}`)
+    alert(`The name you entered was: ${nombre} ${apellido} de ${materia} y estara en los siguientes horarios: ${disponibilidad}`)
   }
-  
+
+//   const handleCallback = (e) => {
+//     setDisponibilidad(e)
+// }
+
   if(!props.show){
     return null
   }
@@ -93,7 +88,7 @@ const Inputs = props => {
           onChange={(e) => setMateria(e.target.value)}
         />
       </label>
-      <Horarios/>
+      <Horarios /*handleCallback = {handleCallback}*//>
       <button className = "boton">Guardar</button>
     </form>
     </div>
@@ -116,19 +111,17 @@ const Square = (props) => {
   const [tocado, setToca] = useState(false);
   const [horario, setHorario] = useState(horarioVacio);
   const newHorario = [...horario];
-
   function Tocar (){
        tocado? setToca(false) : setToca(true)
 
        if(tocado) newHorario[props.Fila][props.Columna] = false 
        else newHorario[props.Columna][props.Fila] = true
-       
        setHorario(newHorario)
+       //props.handleCallback(horario)
        console.log(horario)
       }
         return (
         <div className="square" onClick={Tocar}>
-          <Inputs coso = {newHorario}/>
           <div className = "click">
             {tocado ? "✅" : ""}
           </div>

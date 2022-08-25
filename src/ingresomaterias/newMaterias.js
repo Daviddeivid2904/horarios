@@ -11,14 +11,35 @@ const Materia = props =>{
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log(seguida)
-      alert(`la materia: ${nombreMateria} tendra ${horas} bloques por semana y ${seguida}`)
+      fetch('http://localhost:5000/infoMateria', {
+      method: 'POST',
+      body: JSON.stringify({
+        nombre_materia: nombreMateria,
+        continuidad: seguida,
+        horas_por_semana:horas,
+      }),
+      headers: {
+        'Content-Type': 'application/json'// AQUI indicamos el formato
+      }
+    })
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(data) {
+      console.log(data);
+    })
+    .catch(function(error) {
+      console.error(error);
+    })
+    props.getApiData()
+
     }
     if(!props.show){
       return null
     }
     return(
 <div className = "shadowMateria">
-  <form onSubmit={handleSubmit} className="materiabody">
+  <form className="materiabody">
         <label>ingrese nombre de la materia:
           <input 
             type="text" 
@@ -51,8 +72,8 @@ const Materia = props =>{
 
         <br></br>  <br></br>  <br></br>
 
-        <button>Guardar</button>
-        <button onClick = {props.onClose} className = "boton">Cerrar</button>      </form>
+        <button onClick={handleSubmit} >Guardar</button>
+        <button onClick = {props.onClose}className = "boton">Cerrar</button>      </form>
  </div>
     )
 }
