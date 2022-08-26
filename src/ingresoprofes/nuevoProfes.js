@@ -45,6 +45,9 @@ const Inputs = props => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    alert(`The name you entered was: ${nombre} ${apellido} de ${materia}`)
+
     fetch('http://localhost:5000/infoProfesor', {
       method: 'POST',
       body: JSON.stringify({
@@ -69,10 +72,6 @@ const Inputs = props => {
     })
   }
 
-//   const handleCallback = (e) => {
-//     setDisponibilidad(e)
-// }
-
   if(!props.show){
     return null
   }
@@ -80,45 +79,45 @@ const Inputs = props => {
   return (
     <div className = "shadow">
       <div className = "formulario">
-    <form onSubmit={handleSubmit}>
-        <div className = "formHeader">
-          <p onClick = {props.onClose} className = "boton">X</p>
-        </div>
-      <label>Nombre del docente:
-      <br></br>
-        <input 
-          className = "inputs"
-          placeholder = "Escribe aquí"
-          type="text" 
-          value={nombre}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <br></br>
-      <label>Apellido del docente:
-      <br></br>
-        <input 
-          className = "inputs"
-          placeholder = "Escribe aquí"
-          type="text" 
-          value={apellido}
-          onChange={(e) => setApellido(e.target.value)}
-        />
-      </label>
-      <br></br>
-      <label> Materia que da:
-      <br></br>
-      <select name="materias" onChange={setaerMateria}>
-        {posibles_materias && posibles_materias.map((user) => (
-                <option value = {user.nombre_materia}>{user.nombre_materia}</option>
-             ))}
-      </select>
-      </label>
-      <Horarios setDisponibilidad = {setDisponibilidad} disponibilidad = {disponibilidad}/>
-      <button className = "boton">Guardar</button>
-    </form>
+        <form onSubmit={handleSubmit}>
+          <div className = "formHeader">
+            <p onClick = {props.onClose} className = "boton">X</p>
+          </div>
+          <label>Nombre del docente:
+            <br></br>
+            <input 
+              className = "inputs"
+              placeholder = "Escribe aquí"
+              type="text" 
+              value={nombre}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+            <br></br>
+            <label>Apellido del docente:
+            <br></br>
+            <input 
+              className = "inputs"
+              placeholder = "Escribe aquí"
+              type="text" 
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
+            />
+          </label>
+          <br></br>
+          <label> Materia que da:
+            <br></br>
+            <select name="materias" onChange={setaerMateria}>
+              {posibles_materias && posibles_materias.map((user) => (
+                  <option value = {user.nombre_materia}>{user.nombre_materia}</option>
+              ))}
+            </select>
+          </label>
+        <Horarios setDisponibilidad = {setDisponibilidad} disponibilidad = {disponibilidad}/>
+        <button className = "boton">Guardar</button>
+       </form>
     </div>
-    </div>
+  </div>
   )
 }
 
@@ -134,7 +133,6 @@ const Square = (props) => {
        if(tocado) newHorario[props.Fila][props.Columna] = false 
        else newHorario[props.Columna][props.Fila] = true
        props.setDisponibilidad(newHorario)
-       console.log(props.disponibilidad)
       }
         return (
         <div className="square" onClick={Tocar}>

@@ -4,7 +4,7 @@ import "./styleMaterias.css"
 
 const Materia = props =>{
     const [nombreMateria, setNombreMateria] = useState("");
-    const [horas, setHoras] = useState(0);
+    const [horas, setHoras] = useState(1);
     const [seguida, setSeguida] = useState(false);
   
   
@@ -32,10 +32,6 @@ const Materia = props =>{
       console.error(error);
     })
     props.getApiData()
-
-    setNombreMateria("");
-    setSeguida(false)
-    setHoras(1)
 
     }
     if(!props.show){
