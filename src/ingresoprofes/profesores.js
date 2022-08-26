@@ -24,7 +24,7 @@ useEffect(() => {
 
     return (
 <div className="lista">
-    <Inputs onClose = {()=> setShow(false)} show = {show}/>
+    <Inputs onClose = {()=> setShow(false)} refresh = {getApiData()} show = {show}/>
     <div>
         <ul className='uli'>
            {users && users.map((user) => (

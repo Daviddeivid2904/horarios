@@ -10,7 +10,7 @@ const Inputs = props => {
 
   const [materia, setMateria] = useState("");
 
-  const [idMateria, setIdMateria] = useState("");
+  const [idMateria, setIdMateria] = useState("38");
 
   const [posibles_materias, setPosibles] = useState();
 
@@ -26,9 +26,9 @@ const Inputs = props => {
   const [disponibilidad, setDisponibilidad] = useState(horarioVacio)
 
   const setaerMateria = (e) =>{
-    console.log(e + "Eeeeeeeeaaaa")
+    getApiData();
     setMateria(e.target.value)
-    setIdMateria(e.target.value.id_materia)
+    console.log("materia es " + materia + "su ID es" + idMateria)
   }
 
   const getApiData = async () => {
@@ -55,7 +55,7 @@ const Inputs = props => {
         apellido: apellido,
         disponibilidad:disponibilidad,
         materia: materia,
-        id_materia: idMateria,
+        id_materia: idMateria
       }),
       headers: {
         'Content-Type': 'application/json'// AQUI indicamos el formato
@@ -70,6 +70,9 @@ const Inputs = props => {
     .catch(function(error) {
       console.error(error);
     })
+
+    props.getApiData()
+
   }
 
   if(!props.show){
