@@ -120,13 +120,26 @@ app.post('/infoProfesor', (req, res) => {
     });
 });
 
+app.delete('/deleteProfe/:id_profesor', (req, res) =>{
+    const{ id_profesor }= req.params;
+    const sql = `DELETE FROM profesores WHERE id_profesor = ` + connection.escape(id_profesor);
+    connection.query(sql, error => {
+        if (error) {
+            res.send("Error")
+        } else {
+            res.send("Se elimino el profesor")
+        }
+        
+    });
+});
+
 app.post('/infoMateria', (req, res) => {
     const sql = 'INSERT INTO materia SET ?';
-    if (req.body.horas_por_semana <= 0 || req.body.horas_por_semana > 6) return res.status(400).send("Error");
+    //if (req.body.horas_por_semana <= 0 || req.body.horas_por_semana > 6) return res.status(400).send("Error");
     const infoMateria = {
         nombre_materia: req.body.nombre_materia,
         continuidad: req.body.continuidad,
-        horas_por_semana: req.body.horas_por_semana
+       // horas_por_semana: req.body.horas_por_semana
     };
     connection.query(sql, infoMateria, error => {
         if (error) {
@@ -138,15 +151,26 @@ app.post('/infoMateria', (req, res) => {
     });
 });
 
+app.delete('/deleteMateria/:id_materia', (req, res) =>{
+    const{ id_materia }= req.params;
+    const sql = `DELETE FROM materia WHERE id_materia = ` + connection.escape(id_materia);
+    connection.query(sql, error => {
+        if (error) {
+            res.send("Error")
+        } else {
+            res.send("Se elimino la materia")
+        }
+        
+    });
+});
 
 
-
-app.put('/editarDatos', (req, res) => {
+app.put('/editarDatos/:id_profesor', (req, res) => {
     const { id_profesor } = req.params;
     const { nombre, apellido } = req.body;
     
 
-    const sql = `UPDATE profesores  SET nombre = '${nombre}', apellido= '${apellido}' WHERE id_profesor = ${id_profesor}`;
+    const sql = `UPDATE profesores  SET nombre = '${nombre}', apellido= '${apellido}' WHERE id_profesor = ` + connection.escape(id_profesor);
     
     connection.query(sql, error => {
         if (error) throw error;
@@ -155,6 +179,66 @@ app.put('/editarDatos', (req, res) => {
            
 });
 
+app.post('/cursos', (req, res) => {
+    const sql = 'INSERT INTO curso SET ?';
+    const infocurso = {
+        nombre_curso: req.body.nombre_curso
+    };
+    connection.query(sql,infocurso, error => {
+        if (error) throw error;
+        res.send("Se creo correctamente el curso")
+    });
+});
+
+app.get('/GetProfes', (req, res) => {
+    const sql = 'SELECT nombre, apellido FROM profesores'; //+ connection.escape(userId); 
+    connection.query(sql, (error, results) => {
+        if (error) throw error;
+        if (results.length > 0) {
+            res.json(results);
+        } else {
+            res.send('No se encontraron resultados en su busqueda.');
+        }
+    });
+});
+
+app.get('/GetMaterias', (req, res) => {
+    const sql = 'SELECT nombre_materia FROM materia'; //+ connection.escape(userId); 
+    connection.query(sql, (error, results) => {
+        if (error) throw error;
+        if (results.length > 0) {
+            res.json(results);
+        } else {
+            res.send('No se encontraron resultados en su busqueda.');
+        }
+    });
+});
+
+app.put('/editarMaterias/:id_materia', (req, res) => {
+    const { id_materia } = req.params;
+    const { nombre_materia } = req.body;
+    
+
+    const sql = `UPDATE materia  SET nombre_materia = '${nombre_materia}' WHERE id_materia = ` + connection.escape(id_materia);
+    
+    connection.query(sql, error => {
+        if (error) throw error;
+        res.send("Se modifico correctamente la materia")
+    });
+           
+});
+
+app.post('/horariosSemana', (req, res) => {
+    const sql = 'INSERT INTO curso_materia SET ?';
+    if (req.body.horas_por_semana <= 0 || req.body.horas_por_semana > 6) return res.status(400).send("Error");
+    const infoHoras = {
+        horas_por_semana: req.body.horas_por_semana
+    };
+    connection.query(sql,infoHoras, error => {
+        if (error) throw error;
+        res.send("Se creo correctamente el bloque")
+    });
+});
 
 connection.connect(function (error) {
     if (error) {
