@@ -10,7 +10,7 @@ const Inputs = props => {
 
   const [materia, setMateria] = useState("");
 
-  const [idMateria, setIdMateria] = useState("38");
+  const [idMateria, setIdMateria] = useState("");
 
   const [posibles_materias, setPosibles] = useState();
 
@@ -28,6 +28,7 @@ const Inputs = props => {
   const setaerMateria = (e) =>{
     getApiData();
     setMateria(e.target.value)
+    setIdMateria(e.target.value.id_materia)
     console.log("materia es " + materia + "su ID es" + idMateria)
   }
 

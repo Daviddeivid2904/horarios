@@ -13,9 +13,18 @@ const getApiData = async () => {
   const response = await fetch(
     "http://localhost:5000/materias"
   ).then((response) => response.json());
-  console.log(response);
   setUsers(response);
 };
+
+const eliminar = (event) => {
+    fetch('/deleteMateria/:'+event, {
+      method: 'DELETE',
+    })
+    .then(res => {
+      return res.json()
+    }) 
+    .then(data => console.log(data))
+}
 
 useEffect(() => {
   getApiData();
@@ -28,7 +37,7 @@ useEffect(() => {
         <ul className='uli'>
            {users && users.map((user) => (
            <div>
-                <li className='liliana'><div className = "nombres">{user.nombre_materia}</div></li>      
+                <li className='liliana'><div className = "nombres">{user.nombre_materia}</div><div onClick = {eliminar(user.id_materia)}>X</div></li>      
            </div>
              ))}
         </ul>
