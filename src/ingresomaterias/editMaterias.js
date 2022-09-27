@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import "./styleMaterias.css"
 
 const Editar = props =>{
-    const [nombreMateria, setNombreMateria] = useState("");
+    const [nombreMateria, setNombreMateria] = useState("redes");
     const [horas, setHoras] = useState(1);
     const [seguida, setSeguida] = useState(false);
-    const [users, setUsers] = useState();
+    const [users, setUsers] = useState([{nombre_materia:"none",id_materia:0}],[]);
 
 
     const fetchData = async() => {
@@ -15,19 +15,20 @@ const Editar = props =>{
         })
         .then(data => {
           setUsers(data)
+          console.log(data)
         })
     }
 
     useEffect(() => {
       fetchData();
-      console.log(users[0].nombre_materia)
+      console.log(users)
     }, []);
 
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log(seguida)
       fetch('http://localhost:5000/editarMaterias/'+props.id_materia, {
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify({
         nombre_materia: nombreMateria,
       }),
@@ -44,7 +45,6 @@ const Editar = props =>{
     .catch(function(error) {
       console.error(error);
     })
-    props.getApiData()
 
     }
     if(!props.show){
@@ -57,7 +57,7 @@ const Editar = props =>{
         <label>ingrese nombre de la materia:
           <input 
             type="text" 
-            value= {users[0].nombre_materia}
+            defaultvalue= {"users[0].nombre_materia"}
             onChange={(e) => setNombreMateria(e.target.value)}
           />
         </label>
