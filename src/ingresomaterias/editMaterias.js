@@ -2,21 +2,27 @@ import { useState } from "react";
 import React from 'react';
 import "./styleMaterias.css"
 
-const Materia = props =>{
+const Editar = props =>{
     const [nombreMateria, setNombreMateria] = useState("");
     const [horas, setHoras] = useState(1);
     const [seguida, setSeguida] = useState(false);
-  
-  
+    const [users, setUsers] = useState();
+
+
+    const getApiData = async () => {
+      const response = await fetch(
+        "http://localhost:5000/Materia/"+props.id_materia
+      ).then((response) => response.json());
+      setUsers(response);
+    };
+    getApiData();
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log(seguida)
-      fetch('http://localhost:5000/infoMateria', {
+      fetch('http://localhost:5000/editarMaterias/'+props.id_materia, {
       method: 'POST',
       body: JSON.stringify({
         nombre_materia: nombreMateria,
-        continuidad: seguida,
-        horas_por_semana:horas,
       }),
       headers: {
         'Content-Type': 'application/json'// AQUI indicamos el formato
@@ -43,7 +49,7 @@ const Materia = props =>{
         <label>ingrese nombre de la materia:
           <input 
             type="text" 
-            value={nombreMateria}
+            value={users.nombre_materia}
             onChange={(e) => setNombreMateria(e.target.value)}
           />
         </label>
@@ -77,4 +83,4 @@ const Materia = props =>{
  </div>
     )
 }
-export {Materia}
+export {Editar}

@@ -229,7 +229,7 @@ app.put('/editarMaterias/:id_materia', (req, res) => {
 });
 
 app.get('/Materia/:id', (req, res) => {
-    const id_profesor = req.params.id;
+    const id_materia = req.params.id;
     const sql = 'SELECT * FROM materia WHERE id_materia =' + connection.escape(id_materia);
     connection.query(sql, (error, result) => {
         if (error) throw error;
