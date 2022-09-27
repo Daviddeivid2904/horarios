@@ -1,5 +1,4 @@
-import { useState } from "react";
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "./styleMaterias.css"
 
 const Editar = props =>{
@@ -9,13 +8,21 @@ const Editar = props =>{
     const [users, setUsers] = useState();
 
 
-    const getApiData = async () => {
-      const response = await fetch(
-        "http://localhost:5000/Materia/"+props.id_materia
-      ).then((response) => response.json());
-      setUsers(response);
-    };
-    getApiData();
+    const fetchData = async() => {
+      fetch( "http://localhost:5000/Materia/"+props.id_materia)
+        .then(response => {
+          return response.json()
+        })
+        .then(data => {
+          setUsers(data)
+        })
+    }
+
+    useEffect(() => {
+      fetchData();
+      console.log(users[0].nombre_materia)
+    }, []);
+
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log(seguida)
@@ -43,13 +50,14 @@ const Editar = props =>{
     if(!props.show){
       return null
     }
+
     return(
 <div className = "shadowMateria">
   <form className="materiabody">
         <label>ingrese nombre de la materia:
           <input 
             type="text" 
-            value={users.nombre_materia}
+            value= {users[0].nombre_materia}
             onChange={(e) => setNombreMateria(e.target.value)}
           />
         </label>

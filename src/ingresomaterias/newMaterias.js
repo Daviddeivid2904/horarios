@@ -31,7 +31,6 @@ const Materia = props =>{
     .catch(function(error) {
       console.error(error);
     })
-    props.getApiData()
 
     }
     if(!props.show){

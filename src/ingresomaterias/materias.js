@@ -1,5 +1,4 @@
-
-
+import React, {useEffect} from 'react';
 import { useState } from "react";
 import {Materia} from "./newMaterias";
 import {Editar} from "./editMaterias";
@@ -21,9 +20,13 @@ const getApiData = async () => {
 };
 
 function abrir(value) {
-setShowEditar(true);
 setId(value)
+setShowEditar(true);
 }
+
+useEffect(() => {
+  getApiData();
+}, []);
 
 /*const eliminar = (event) => {
     fetch('http://localhost:5000/deleteMateria/'+event, {

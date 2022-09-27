@@ -233,7 +233,7 @@ app.get('/Materia/:id', (req, res) => {
     const sql = 'SELECT * FROM materia WHERE id_materia =' + connection.escape(id_materia);
     connection.query(sql, (error, result) => {
         if (error) throw error;
-        if (result.length > 0) {
+        if (result.length > -1) {
             res.json(result);
         } else {
             res.send('No se encontraron resultados en su busqueda.');
