@@ -28,7 +28,7 @@ useEffect(() => {
   getApiData();
 }, []);
 
-/*const eliminar = (event) => {
+const eliminar = (event) => {
     fetch('http://localhost:5000/deleteMateria/'+event, {
       method: 'DELETE',
     })
@@ -36,7 +36,7 @@ useEffect(() => {
       return res.json()
     }) 
     .then(data => console.log(data))
-}*/
+}
     return (
 <div className="lista">
     <Materia onClose = {()=> setShowMateria(false)} refresh = {getApiData()} show = {showMateria}/>
@@ -44,8 +44,8 @@ useEffect(() => {
     <div>
         <ul className='uli'>
            {users && users.map((user) => (
-           <div>
-                <li className='liliana'><div onClick={()=>abrir(user.id_materia)} className = "nombres">{user.nombre_materia}</div><div /*onClick = {eliminar(user.id_materia)}*/>X</div></li>      
+           <div className = "cont">
+                <li className='liliana'><div onClick={()=>abrir(user.id_materia)} className = "nombres">{user.nombre_materia}</div><div className = "equis" onClick = {() => eliminar(user.id_materia)}>X</div></li>      
            </div>
              ))}
         </ul>

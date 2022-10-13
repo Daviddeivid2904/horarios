@@ -30,15 +30,15 @@ useEffect(() => {
 }, []);
 
 
-/*const eliminar = (event) => {
-    fetch('http://localhost:5000//deleteProfe/'+event, {
+const eliminar = (event) => {
+    fetch('http://localhost:5000/deleteProfe/'+event, {
       method: 'DELETE',
     })
     .then(res => {
       return res.json()
     }) 
     .then(data => console.log(data))
-}*/
+}
 
 
     return (
@@ -48,8 +48,8 @@ useEffect(() => {
     <div>
         <ul className='uli'>
            {users && users.map((user) => (
-             <div>
-                   <li className='liliana'><div onClick={()=>abrir(user.id_profesor)} className = "nombres">{user.nombre +" "+ user.apellido}</div><div /*onClick = {eliminar(user.id_profesor)}*/>X</div></li> 
+             <div className = "cont">
+                   <li className='liliana'><div onClick={()=>abrir(user.id_profesor)} className = "nombres">{user.nombre +" "+ user.apellido}</div><div className = "equis" onClick = {() => eliminar(user.id_profesor)}>X</div></li> 
              </div>
            ))}
         </ul>

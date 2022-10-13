@@ -28,7 +28,8 @@ const Inputs = props => {
   const setaerMateria = (e) =>{
     getApiData();
     setMateria(e.target.value)
-    setIdMateria(e.target.value.id_materia)
+    console.log(e.target.value)
+    setIdMateria(e.target.value)
     console.log("materia es " + materia + "su ID es" + idMateria)
   }
 
@@ -113,7 +114,7 @@ const Inputs = props => {
             <br></br>
             <select name="materias" onChange={setaerMateria}>
               {posibles_materias && posibles_materias.map((user) => (
-                  <option value = {user.nombre_materia}>{user.nombre_materia}</option>
+                  <option value = {user.id_materia}>{user.nombre_materia}</option>
               ))}
             </select>
           </label>

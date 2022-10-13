@@ -107,7 +107,7 @@ app.post('/infoProfesor', (req, res) => {
                             {
                                 dia: dia_actual,
                                 bloque: bloque_actual,
-                                id_profesor: id
+                                id_materia: id
                             }, error => {
                                 if (error) throw error;
                             }
