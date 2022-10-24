@@ -1,0 +1,186 @@
+
+.boton {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.shadow{
+  position: fixed;
+  background-color: rgba(0,0,0,0.5);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.formHeader{
+display: flex;
+justify-content: right;
+align-items: right;
+}
+
+.formulario{
+  background-color: lightblue;
+  width: 500px;
+  margin-top: 30px;
+  border-radius: 30px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs{
+  width: 60%;
+  height: 25px;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  border:none;
+}
+
+
+.lista{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nombres{
+  font-size: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 340px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 48px;
+  padding: 6px;
+}
+
+.equis{
+  position: relative;
+  left: -29px;
+  font-weight: 800;
+  color: red;
+  cursor: pointer;
+  font-family: cursive;
+}
+
+.uli{
+  column-count: 2;
+}
+
+.liliana{
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+
+.board-row:after {
+  display: flex;
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+.izq {
+  background: #fff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 50px;
+  height: 51px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 75px;
+}
+
+.izq:focus {
+  outline: none;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 50px;
+  height: 51px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 75px;
+}
+.square:hover {
+  background-color: gray;
+}
+.dia {
+  background: #ffffff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 17px;
+  height: 15px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 75px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.game-info {
+  justify-content: center;
+}
+
+.numero{
+  height: 15px;
+  margin: 0;
+}
+
+.hora {
+  font-size: 6.5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.click {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
