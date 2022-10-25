@@ -103,10 +103,9 @@ app.post('/infoProfesor', (req, res) => {
 
                     if (d[i][j]) {
                         connection.query(
-                            "INSERT INTO disponibilidad_horaria SET ?",
+                            "INSERT INTO curso_materia SET ?",
                             {
                                 dia: dia_actual,
-                                bloque: bloque_actual,
                                 id_profesor: id
                             }, error => {
                                 if (error) throw error;
