@@ -240,6 +240,18 @@ app.get('/Materia/:id', (req, res) => {
     });
 });
 
+app.get('/GetCursos', (req, res) => {
+    const sql = 'SELECT nombre_curso FROM curso'; //+ connection.escape(userId); 
+    connection.query(sql, (error, results) => {
+        if (error) throw error;
+        if (results.length > 0) {
+            res.json(results);
+        } else {
+            res.send('No se encontraron resultados en su busqueda.');
+        }
+    });
+});
+
 app.post('/horariosSemana', (req, res) => {
     const sql = 'INSERT INTO curso_materia SET ?';
     if (req.body.horas_por_semana <= 0 || req.body.horas_por_semana > 6) return res.status(400).send("Error");
