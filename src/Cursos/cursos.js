@@ -1,29 +1,20 @@
 import React, {useEffect} from 'react';
 import { useState } from "react";
-import {Inputs} from "./nuevoProfes";
-import {Editar} from "./editProfes";
-import "./styleProfes.css";
-export {ListaProfes}
+import {Inputs} from "./newCurso";
+import "./styleCursos.css";
+export {ListaCursos}
 
-function ListaProfes() {
+function ListaCursos() {
 
 const [show,setShow] = useState(false);
-const [showEditar,setShowEditar] = useState(false);
 const [users, setUsers] = useState();
-const [id,setId] = useState(0);
 
 const getApiData = async () => {
   const response = await fetch(
-    "http://localhost:5000/profesores"
+    "http://localhost:5000/profesores" //cambiar a /GetCursos
   ).then((response) => response.json());
-  //console.log(response);
   setUsers(response);
 };
-
-function abrir(value) {
-  setId(value)
-  setShowEditar(true);
-  }
 
 useEffect(() => {
   getApiData();
@@ -31,7 +22,7 @@ useEffect(() => {
 
 
 const eliminar = (event) => {
-    fetch('http://localhost:5000/deleteProfe/'+event, {
+    fetch('http://localhost:5000/deleteProfe/'+event, { // que delfi cree un delete de cursos
       method: 'DELETE',
     })
     .then(res => {
@@ -44,16 +35,15 @@ const eliminar = (event) => {
     return (
 <div className="lista">
     <Inputs onClose = {()=> setShow(false)} refresh = {getApiData()} show = {show}/>
-    <Editar onClose = {()=> setShowEditar(false)} refresh = {getApiData()} show = {showEditar} id_profesor = {id}/>
     <div>
         <ul className='uli'>
            {users && users.map((user) => (
              <div className = "cont">
-                   <li className='liliana'><div onClick={()=>abrir(user.id_profesor)} className = "nombres">{user.nombre +" "+ user.apellido}</div><div className = "equis" onClick = {() => eliminar(user.id_profesor)}>X</div></li> 
+                   <li className='liliana'><div className = "nombres">{user.nombre_curso}</div><div className = "equis" onClick = {() => eliminar(user.id_curso)}>X</div></li> 
              </div>
            ))}
         </ul>
     </div>
-        <button className = "botonAgregar" onClick={()=> setShow(true)}>Nuevo profesor</button>
+        <button className = "botonAgregar" onClick={()=> setShow(true)}>Nuevo Curso</button>
 </div>
     )}
