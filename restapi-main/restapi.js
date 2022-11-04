@@ -163,6 +163,18 @@ app.delete('/deleteMateria/:id_materia', (req, res) =>{
     });
 });
 
+app.delete('/deleteCursos/:id_curso', (req, res) =>{
+    const{ id_curso }= req.params;
+    const sql = `DELETE FROM curso WHERE id_curso = ` + connection.escape(id_curso);
+    connection.query(sql, error => {
+        if (error) {
+            res.send("Error")
+        } else {
+            res.send("Se elimino el curso")
+        }
+        
+    });
+});
 
 app.put('/editarDatos/:id_profesor', (req, res) => {
     const { id_profesor } = req.params;
@@ -241,7 +253,7 @@ app.get('/Materia/:id', (req, res) => {
 });
 
 app.get('/GetCursos', (req, res) => {
-    const sql = 'SELECT nombre_curso FROM curso'; //+ connection.escape(userId); 
+    const sql = 'SELECT * FROM curso'; //+ connection.escape(userId); 
     connection.query(sql, (error, results) => {
         if (error) throw error;
         if (results.length > 0) {

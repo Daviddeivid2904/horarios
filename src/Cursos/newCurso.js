@@ -7,7 +7,7 @@ const Inputs = props =>{
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      fetch('http://localhost:5000/infoMateria', { // cambiar a /cursos
+      fetch('http://localhost:5000/cursos', { // cambiar a /cursos
       method: 'POST',
       body: JSON.stringify({
         nombre_curso: nombreCurso,
