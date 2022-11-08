@@ -1,119 +1,125 @@
-import React from 'react';
+import { useState } from "react";
+import React, {useEffect} from 'react';
 import "./styleHorario.css"
 
-const Square = (props) => {
-    return (
-      <div className="horariossquare">
-        <p className="horariosnumero">{props.num}</p>
-        <div className = "horarioshora">
-            {props.hora}
-        </div>
-      </div>
-    );
+const Game = props => {
+
+  return (
+        <Horarios/>
+)
   }
-const Dia = (props) => {
-    return (
-      <div className="horariosdia">
-        {props.dia}
+
+
+const Square = (props) => {
+        return (
+        <div className="squareHorarios">
+          <label className = "labelhora">Materia:</label>
+        </div>
+      );
+    }
+const Hora = (props) => {
+  return (
+    <div className="izq">
+      <p className="numero">{props.num}</p>
+      <div className = "hora">
+          {props.hora}
       </div>
-    );
+    </div>
+  );
+}
+const Dia = (props) => {
+  return (
+    <div className="dia">
+      {props.dia}
+    </div>
+  );
 }
 
-function Board() {
-  const renderSquare = (num,hora) => {
-    return <Square hora = {hora} num = {num}/>;
-  }
-  const renderDia = (info) => {
-    return <Dia dia = {info}/>;
+const Board = (props) => {
+    const cuadraDias = [];
+    const vacio = []
+
+
+  function paraDias (){
+
+     const dias = ["Viernes", "jueves" , "Miercoles", "Martes","Lunes"]
+
+    for (var i = 0; i <= 4; i++) {
+      cuadraDias.push(
+      <Dia dia = {dias[i]}/>
+      )
+      }
+
+      return (
+        <div className= "board-row">
+        {cuadraDias}
+        </div>
+      )
+    }
+  function diasVacios (){
+
+      const dias = ["","", "","","",""]
+ 
+     for (var i = 0; i <= 5; i++) {
+       vacio.push(
+       <Dia dia = {dias[i]}/>
+       )
+       }
+
+      return(vacio)
+     }
+
+     
+  function tabla1(){
+       const horas = ["7:45 - 9:05","9:20 - 10:40", "10:55 - 12:15"] 
+       const cant_veces = [4,3,2,1,0]
+    return(  
+      horas.map(numero => 
+        <div className= "board-row"> 
+          {cant_veces.map(i => <Square setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} Columna = {i} Fila = {horas.indexOf(numero)}/>)}
+          <Hora hora = {numero} num = {horas.indexOf(numero) + 1}/>
+        </div> 
+        )
+    )
   }
 
-  const status = "horarios"
+  function tabla2(){
+    const horas = ["13:10 - 14:30","14:40 - 16:00", "16:10 - 17:30"] 
+    const cant_veces = [4,3,2,1,0]
+ return(  
+   horas.map(numero => 
+     <div className= "board-row"> 
+       {cant_veces.map(i => <Square setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} Columna = {i} Fila = {horas.indexOf(numero) + 3}/>)}
+       <Hora hora = {numero} num = {horas.indexOf(numero) + 4}/>
+     </div> 
+     )
+ )
+}
+  
+  return(
+    <div>
+      <h1 className="status">Horarios disponibles: </h1>
+      <br></br>
+    {paraDias()}
+    {tabla1()}
+    {diasVacios()}
+    {tabla2()}
+    </div>
+  );
+ 
+  }
 
+  const Horarios = (props) => {
     return (
-      <div>
-        <h1 className="horariosstatus">{status}</h1>
-        <div className="horariosboard-row">
-          {renderDia("Viernes")}
-          {renderDia("Jueves")}
-          {renderDia("Miercoles")}
-          {renderDia("Martes")}
-          {renderDia("Lunes")}
+      <div className="game">
+        <div className="game-board">
+          <Board setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} />
         </div>
-        <div className="horariosboard-row">
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare("1°","7:45 - 9:05")}
-        </div>
-        <div className="horariosboard-row">
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare("2°","9:20 - 10:40")}
-
-        </div>
-        <div className="horariosboard-row">
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare("3°","10:55 - 12:15")}
-
-        </div>
-        <div className="horariosboard-row">
-          {renderDia()}
-          {renderDia()}
-          {renderDia()}
-          {renderDia()}
-          {renderDia()}
-          {renderDia()}
-        </div>
-        <div className="horariosboard-row">
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare("4°","13:10 - 14:30")}
-
-        </div>
-        <div className="horariosboard-row">
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare("5°","14:40 - 16:00")}
-
-        </div>
-        <div className="horariosboard-row">
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare()}
-          {renderSquare("6°","16:10 - 17:30")}
-
+        <div className="game-info">
         </div>
       </div>
     );
   }
 
-function Game (){
-    return (
-      <div className="horariosgame">
-        <div className="horariosgame-board">
-          <Board />
-        </div>
-        <div className="horariosgame-info">
-        </div>
-      </div>
-    );
-  }
+  export {Game}
 
-export {Game}

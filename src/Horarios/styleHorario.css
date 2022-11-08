@@ -1,79 +1,18 @@
-  
-  ol, ul {
-    padding-left: 30px;
-  }
-  
-  .horariosboard-row:after {
-    display: flex;
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .horariosstatus {
-    display: flex;
-    margin-bottom: 5px;
-    justify-content: center;
-  }
-  
-  .horariossquare {
-    background: #fff;
-    border: 1px solid #999;
-    float: right;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 100px;
-    height: 102px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 150px;
-  }
-  .horariosdia {
-    background: #ffffff;
-    border: 1px solid #999;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 30px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 150px;
-  }
-  
-  .horariossquare:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .horariosgame {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: lightblue;
-    height: calc(vh - 120px);
-    padding: 150px;
-    box-sizing: border-box;
-  }
-  
-  .horariosgame-info {
-    justify-content: center;
-  }
-  
-  .horariosnumero{
-    height: 30px;
-    margin: 0;
-  }
-  
-  .horarioshora {
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
-  }
+.squareHorarios {
+  background: #fff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 50px;
+  height: 51px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 75px;
+}
+
+.labelhora{
+  font-size: 10px;
+}
