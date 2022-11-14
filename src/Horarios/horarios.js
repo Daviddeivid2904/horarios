@@ -5,15 +5,30 @@ import "./styleHorario.css"
 const Game = props => {
 
   return (
-        <Horarios/>
+    <div className="manualmente">
+      <h1>Hacer manualmente</h1>
+        <div className = "separados">
+          
+          <div className= "horarios">
+            <Horarios/>
+          </div>
+
+          <div className= "horarios">
+            <Horarios/>
+          </div>
+        </div>
+    </div>
 )
   }
 
 
 const Square = (props) => {
+  const [nombre, setNombre] = useState("mati");
+  const [profesor, setProfesor] = useState("juan");
         return (
         <div className="squareHorarios">
-          <label className = "labelhora">Materia:</label>
+          <label className = "nombreHorarios">{nombre}</label>
+          <label className = "profeHorario">{profesor}</label>
         </div>
       );
     }
@@ -98,7 +113,7 @@ const Board = (props) => {
   
   return(
     <div>
-      <h1 className="status">Horarios disponibles: </h1>
+      <h1 className="status"></h1>
       <br></br>
     {paraDias()}
     {tabla1()}

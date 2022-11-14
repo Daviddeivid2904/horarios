@@ -2,17 +2,37 @@
   background: #fff;
   border: 1px solid #999;
   float: right;
-  font-size: 15px;
-  font-weight: bold;
   line-height: 50px;
   height: 51px;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 0;
   text-align: center;
   width: 75px;
+  display: flex;
+  flex-direction: row;
 }
 
-.labelhora{
+.nombreHorarios{
   font-size: 10px;
+}
+
+.profeHorario{
+  font-size: 10px;
+}
+
+.separados{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.horarios{
+margin: 30px;
+}
+
+.manualmente{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
