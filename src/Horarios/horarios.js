@@ -23,12 +23,37 @@ const Game = props => {
 
 
 const Square = (props) => {
+
+  const [posibles_materias, setPosibles] = useState();
+  const getApiData = async () => {
+    const response = await fetch(
+      "http://localhost:5000/materias"
+    ).then((response) => response.json());
+    console.log(response);
+    setPosibles(response);
+  };
+
+  useEffect(() => {
+    getApiData();
+  }, []);
+
   const [nombre, setNombre] = useState("mati");
   const [profesor, setProfesor] = useState("juan");
+  const setaerMateria = (e) =>{
+    getApiData();
+    setNombre(e.target.value.nombre_materia)
+    console.log("materia es " + nombre)
+  }
         return (
         <div className="squareHorarios">
           <label className = "nombreHorarios">{nombre}</label>
+          <select name="materias" onChange={setaerMateria}>
+              {posibles_materias && posibles_materias.map((user) => (
+                  <option value = {user.id_materia}>{user.nombre_materia}</option>
+              ))}
+            </select>
           <label className = "profeHorario">{profesor}</label>
+  
         </div>
       );
     }

@@ -109,7 +109,6 @@ align-items: right;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
-  text-align: center;
   width: 75px;
 }
 
@@ -169,13 +168,11 @@ align-items: right;
 
 .numero{
   height: 15px;
-  margin: 0;
 }
 
 .hora {
   font-size: 6.5px;
   font-weight: bold;
-  text-align: center;
 }
 
 .click {
