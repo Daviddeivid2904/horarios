@@ -25,6 +25,8 @@ const Game = props => {
 const Square = (props) => {
 
   const [posibles_materias, setPosibles] = useState();
+  const [posibles_profes, setProfesPosibles] = useState();
+
   const getApiData = async () => {
     const response = await fetch(
       "http://localhost:5000/materias"
@@ -33,35 +35,57 @@ const Square = (props) => {
     setPosibles(response);
   };
 
+  const getProfeData = async () => {
+    const response = await fetch(
+      "http://localhost:5000/profesores"
+    ).then((response) => response.json());
+    //console.log(response);
+    setProfesPosibles(response);
+  };
+
   useEffect(() => {
+    getProfeData();
     getApiData();
   }, []);
 
-  const [nombre, setNombre] = useState("mati");
-  const [profesor, setProfesor] = useState("juan");
+  const [nombre, setNombre] = useState("Materia:");
+  const [profesor, setProfesor] = useState("Profesor:");
+
   const setaerMateria = (e) =>{
     getApiData();
-    setNombre(e.target.value.nombre_materia)
-    console.log("materia es " + nombre)
+    console.log(e.target.value)
+    setNombre(e.target.value)
+  }
+
+  const setaerProfe = (e) =>{
+    getApiData();
+    console.log(e.target.value)
+    setProfesor(e.target.value)
   }
         return (
         <div className="squareHorarios">
           <label className = "nombreHorarios">{nombre}</label>
-          <select name="materias" onChange={setaerMateria}>
+          <select className = "selector"  name="materias" onChange={setaerMateria}>
+                  <option>Elegir materia</option>
               {posibles_materias && posibles_materias.map((user) => (
-                  <option value = {user.id_materia}>{user.nombre_materia}</option>
+                  <option value = {user.nombre_materia}>{user.nombre_materia}</option>
               ))}
             </select>
-          <label className = "profeHorario">{profesor}</label>
-  
+            <label className = "profeHorario">{profesor}</label>
+            <select className = "selector" name="materias" onChange={setaerProfe}>
+                 <option>Elegir profesor</option>
+              {posibles_profes && posibles_profes.map((user) => (
+                  <option value = {user.apellido}>{user.apellido}</option>
+              ))}
+            </select>
         </div>
       );
     }
 const Hora = (props) => {
   return (
-    <div className="izq">
-      <p className="numero">{props.num}</p>
-      <div className = "hora">
+    <div className="izqHorario">
+      <p className="numeroHorario">{props.num}</p>
+      <div className = "horaHorario">
           {props.hora}
       </div>
     </div>
@@ -69,7 +93,7 @@ const Hora = (props) => {
 }
 const Dia = (props) => {
   return (
-    <div className="dia">
+    <div className="diaHorario">
       {props.dia}
     </div>
   );
@@ -91,7 +115,7 @@ const Board = (props) => {
       }
 
       return (
-        <div className= "board-row">
+        <div className= "board-rowHorario">
         {cuadraDias}
         </div>
       )
@@ -115,7 +139,7 @@ const Board = (props) => {
        const cant_veces = [4,3,2,1,0]
     return(  
       horas.map(numero => 
-        <div className= "board-row"> 
+        <div className= "board-rowHorario"> 
           {cant_veces.map(i => <Square setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} Columna = {i} Fila = {horas.indexOf(numero)}/>)}
           <Hora hora = {numero} num = {horas.indexOf(numero) + 1}/>
         </div> 
@@ -128,7 +152,7 @@ const Board = (props) => {
     const cant_veces = [4,3,2,1,0]
  return(  
    horas.map(numero => 
-     <div className= "board-row"> 
+     <div className= "board-rowHorario"> 
        {cant_veces.map(i => <Square setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} Columna = {i} Fila = {horas.indexOf(numero) + 3}/>)}
        <Hora hora = {numero} num = {horas.indexOf(numero) + 4}/>
      </div> 
@@ -151,11 +175,11 @@ const Board = (props) => {
 
   const Horarios = (props) => {
     return (
-      <div className="game">
-        <div className="game-board">
+      <div className="gameHorario">
+        <div className="game-boardHorario">
           <Board setDisponibilidad = {props.setDisponibilidad} disponibilidad = {props.disponibilidad} />
         </div>
-        <div className="game-info">
+        <div className="game-infoHorario">
         </div>
       </div>
     );

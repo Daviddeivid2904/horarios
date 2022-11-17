@@ -2,33 +2,30 @@
   background: #fff;
   border: 1px solid #999;
   float: right;
-  font-size: 15px;
   font-weight: bold;
-  line-height: 50px;
-  height: 51px;
+  height: 64.3px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
-  width: 75px;
+  width: 97.5px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .nombreHorarios{
-  height: 0px;
-  font-size: 10px;
+  font-size: 8px;
+  margin-top: 2px;
 }
 
 .profeHorario{
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .separados{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 .horarios{
 margin: 30px;
@@ -39,4 +36,72 @@ margin: 30px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.selector{	
+   margin:0px;
+   border:1px solid #d9d9d9;
+   height:15px;
+   width: 80px;
+   font-size: 9px;
+   margin:2px;
+}
+
+.izqHorario {
+  background: #fff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 19.5px;
+  font-weight: bold;
+  line-height: 0px;
+  height: 64.3px;
+  text-align: center;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 97.5px;
+}
+
+.izqHorario:focus {
+  outline: none;
+}
+.numeroHorario{
+  height: 19.5px;
+}
+
+.horaHorario {
+  font-size: 8.45px;
+  font-weight: bold;
+}
+
+.diaHorario {
+  background: #ffffff;
+  border: 1px solid #999;
+  float: right;
+  font-size: 15.6px;
+  font-weight: bold;
+  line-height: 17px;
+  height: 19.5px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 97.5px;
+}
+
+.board-rowHorario:after {
+  display: flex;
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.gameHorario {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.game-infoHorario {
+  justify-content: center;
 }
