@@ -93,7 +93,7 @@ align-items: right;
 }
 
 .izq {
-  background: #fff;
+  background: #F9FEBD;
   border: 1px solid #999;
   float: right;
   font-size: 15px;
@@ -111,7 +111,7 @@ align-items: right;
   outline: none;
 }
 .square {
-  background: #fff;
+  background: #F9FEBD;
   border: 1px solid #999;
   float: right;
   font-size: 15px;
@@ -128,7 +128,7 @@ align-items: right;
   background-color: gray;
 }
 .dia {
-  background: #ffffff;
+  background: #F9FEBD;
   border: 1px solid #999;
   float: right;
   font-size: 12px;
@@ -147,7 +147,7 @@ align-items: right;
 }
 
 .kbd-navigation .square:focus {
-  background: #ddd;
+  background: #F9FEBD;
 }
 
 .game {

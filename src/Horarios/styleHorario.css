@@ -1,5 +1,5 @@
 .squareHorarios {
-  background: #fff;
+  background: #E2E8A3;
   border: 1px solid #999;
   float: right;
   font-weight: bold;
@@ -39,6 +39,7 @@ margin: 30px;
 }
 
 .selector{	
+  background-color: #E2E8A3;
    margin:0px;
    border:1px solid #d9d9d9;
    height:15px;
@@ -48,7 +49,7 @@ margin: 30px;
 }
 
 .izqHorario {
-  background: #fff;
+  background: #E2E8A3;
   border: 1px solid #999;
   float: right;
   font-size: 19.5px;
@@ -75,7 +76,7 @@ margin: 30px;
 }
 
 .diaHorario {
-  background: #ffffff;
+  background: #E2E8A3;
   border: 1px solid #999;
   float: right;
   font-size: 15.6px;
