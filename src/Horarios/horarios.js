@@ -162,7 +162,6 @@ const Board = (props) => {
   
   return(
     <div>
-      <h1 className="status"></h1>
       <br></br>
     {paraDias()}
     {tabla1()}

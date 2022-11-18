@@ -22,10 +22,10 @@ display: flex;
 justify-content: right;
 align-items: right;
 }
-
 .formulario{
-  background-color: lightblue;
-  width: 500px;
+  padding: 2vh;
+  background-color: #E2E8A3;
+  width: 80vh;
   margin-top: 30px;
   border-radius: 30px;
   display:flex;
@@ -92,12 +92,6 @@ align-items: right;
   display: table;
 }
 
-.status {
-  display: flex;
-  margin-bottom: 5px;
-  justify-content: center;
-}
-
 .izq {
   background: #fff;
   border: 1px solid #999;
@@ -109,13 +103,13 @@ align-items: right;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
+  text-align: center;
   width: 75px;
 }
 
 .izq:focus {
   outline: none;
 }
-
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -168,6 +162,7 @@ align-items: right;
 
 .numero{
   height: 15px;
+  margin: 0;
 }
 
 .hora {

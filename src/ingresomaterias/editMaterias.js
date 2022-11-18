@@ -53,41 +53,41 @@ const Editar = props =>{
 
     return(
 <div className = "shadowMateria">
-  <form className="materiabody">
-        <label>ingrese nombre de la materia:
+  <form>
+    <div className="materiabody">
+        <label className="labelsAgregar"> ingrese nombre de la materia:</label>
           <input 
+            className="InputsAgregar"
+            placeholder="Escribe aqui"
             type="text" 
             defaultvalue= {"users[0].nombre_materia"}
             onChange={(e) => setNombreMateria(e.target.value)}
           />
-        </label>
-
-        <br></br>  <br></br>  <br></br>
-
-        <label> puede ser continua?
+        <label>
           <input 
             type="checkBox" 
             value={seguida}
             onChange={(e) => setSeguida(e.target.checked)}
             checked = {seguida}
           />
-        </label>
-        
-        <br></br>  <br></br>  <br></br>
-
-        <label>horas por semana:
+          Puede ser continua?
+        </label>      
+        <br></br>
+        <label className="labelsAgregar">horas por semana:</label>
           <input 
+            className="InputsAgregar"
+            placeholder="Escribe aqui"
             type="number" 
             min = "1"
             value={horas}
             onChange={(e) => setHoras(e.target.value)}
           />
-        </label>
-
-        <br></br>  <br></br>  <br></br>
-
-        <button onClick={handleSubmit} >Guardar</button>
-        <button onClick = {props.onClose}className = "boton">Cerrar</button>      </form>
+        <div className="botonesAgregar">
+        <button onClick={handleSubmit} className = "botonGuardar">Guardar</button>
+        <button onClick = {props.onClose} className = "botonCancelar">Cerrar</button>  
+        </div>  
+        </div>
+        </form>
  </div>
     )
 }

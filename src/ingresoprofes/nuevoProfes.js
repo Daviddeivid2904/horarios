@@ -48,8 +48,6 @@ const Inputs = props => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    alert(`The name you entered was: ${nombre} ${apellido} de ${materia}`)
-
     fetch('http://localhost:5000/infoProfesor', {
       method: 'POST',
       body: JSON.stringify({
@@ -83,45 +81,40 @@ const Inputs = props => {
 
   return (
     <div className = "shadow">
-      <div className = "formulario">
         <form onSubmit={handleSubmit}>
-          <div className = "formHeader">
+        <div className = "formulario">
+          {/* <div className = "formHeader">
             <p onClick = {props.onClose} className = "boton">X</p>
-          </div>
-          <label>Nombre del docente:
-            <br></br>
+          </div> */}
+          <label className="labelsAgregar">Nombre del docente: </label>
             <input 
-              className = "inputs"
+              className="InputsAgregar"
               placeholder = "Escribe aquí"
               type="text" 
               value={nombre}
               onChange={(e) => setName(e.target.value)}
             />
-          </label>
-            <br></br>
-            <label>Apellido del docente:
-            <br></br>
+            <label className="labelsAgregar">Apellido del docente:</label>
             <input 
-              className = "inputs"
+              className="InputsAgregar"
               placeholder = "Escribe aquí"
               type="text" 
               value={apellido}
               onChange={(e) => setApellido(e.target.value)}
             />
-          </label>
-          <br></br>
-          <label> Materia que da:
-            <br></br>
-            <select name="materias" onChange={setaerMateria}>
+          <label className="labelsAgregar">Materia que da:</label>
+            <select className="InputsAgregar" name="materias" onChange={setaerMateria}>
               {posibles_materias && posibles_materias.map((user) => (
                   <option value = {user.id_materia}>{user.nombre_materia}</option>
               ))}
             </select>
-          </label>
         <Horarios setDisponibilidad = {setDisponibilidad} disponibilidad = {disponibilidad}/>
-        <button className = "boton">Guardar</button>
+        <div className="botonesAgregar">
+        <button className = "botonGuardar">Guardar</button>
+        <button onClick = {props.onClose} className = "botonCancelar">Cerrar</button>  
+        </div>    
+        </div>
        </form>
-    </div>
   </div>
   )
 }
@@ -228,7 +221,7 @@ const Board = (props) => {
   
   return(
     <div>
-      <h1 className="status">Horarios disponibles: </h1>
+      <label className="labelsAgregar">Horarios disponibles: </label>
       <br></br>
     {paraDias()}
     {tabla1()}

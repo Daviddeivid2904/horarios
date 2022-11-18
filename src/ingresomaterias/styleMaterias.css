@@ -10,10 +10,11 @@
   }
   
   .materiabody{
-    background-color: lightblue;
-    margin-left:400px;
-    margin-right:400px;
+    background-color: #E2E8A3;
+    margin-left:50vh;
+    margin-right:50vh;
     margin-top: 30px;
+    padding:2vh;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -28,7 +29,7 @@
   }
 
   .botonAgregar{
-    background-color: blueviolet;
+    background-color:#FDE020;
     width: 50vh;
     height: 8vh;
     font-size: 4vh;
