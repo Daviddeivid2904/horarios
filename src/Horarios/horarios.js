@@ -65,14 +65,14 @@ const Square = (props) => {
         return (
         <div className="squareHorarios">
           <label className = "nombreHorarios">{nombre}</label>
-          <select className = "selector"  name="materias" /*onChange={setaerMateria}*/>
+          <select className = "selector"  name="materias" onChange={setaerMateria}>
                   <option>Elegir materia</option>
               {posibles_materias && posibles_materias.map((user) => (
                   <option value = {user.nombre_materia}>{user.nombre_materia}</option>
               ))}
             </select>
             <label className = "profeHorario">{profesor}</label>
-            <select className = "selector" name="materias" /*onChange={setaerProfe}*/>
+            <select className = "selector" name="materias" onChange={setaerProfe}>
                  <option>Elegir profesor</option>
               {posibles_profes && posibles_profes.map((user) => (
                   <option value = {user.apellido}>{user.apellido}</option>
